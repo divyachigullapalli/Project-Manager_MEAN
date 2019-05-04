@@ -10,7 +10,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * Create table schema for momgodb
 
 ## Development server
-
+First run this command before starting node `npm run build` creates build project in dist folder.
 Run `ng start` for a dev server. Navigate to `http://localhost:1335/`. The app will automatically reload if you change any of the source files.
 
 #### Prequisites
