@@ -1,6 +1,6 @@
 # Mean Project Manager App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
+ This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
  This application is about Project Manager where user can add/edit/delete project, add/edit/delete user,add tasks and view tasks, edit any task and even end task. 
     Find complete code here :https://github.com/divyachigullapalli/project-Manager
 
