@@ -3386,7 +3386,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "h1 {\r\n    color: #369;\r\n    font-family: Arial, Helvetica, sans-serif;\r\n    font-size: 250%;\r\n  }\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxXQUFXO0lBQ1gseUNBQXlDO0lBQ3pDLGVBQWU7RUFDakIiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbImgxIHtcclxuICAgIGNvbG9yOiAjMzY5O1xyXG4gICAgZm9udC1mYW1pbHk6IEFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWY7XHJcbiAgICBmb250LXNpemU6IDI1MCU7XHJcbiAgfSJdfQ== */"
+module.exports = "h1 {\r\n    color: #369;\r\n    font-family: Arial, Helvetica, sans-serif;\r\n    font-size: 250%;\r\n  }\r\n\r\n  .project-heading{\r\n    margin: 50px 0 20px 10%;\r\n  }\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxXQUFXO0lBQ1gseUNBQXlDO0lBQ3pDLGVBQWU7RUFDakI7O0VBRUE7SUFDRSx1QkFBdUI7RUFDekIiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbImgxIHtcclxuICAgIGNvbG9yOiAjMzY5O1xyXG4gICAgZm9udC1mYW1pbHk6IEFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWY7XHJcbiAgICBmb250LXNpemU6IDI1MCU7XHJcbiAgfVxyXG5cclxuICAucHJvamVjdC1oZWFkaW5ne1xyXG4gICAgbWFyZ2luOiA1MHB4IDAgMjBweCAxMCU7XHJcbiAgfSJdfQ== */"
 
 /***/ }),
 
@@ -3397,7 +3397,7 @@ module.exports = "h1 {\r\n    color: #369;\r\n    font-family: Arial, Helvetica,
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <h1> Project Manager!</h1>\n  <app-header></app-header> <!--  header -->\n  <div class=\"container\">\n    <router-outlet></router-outlet>\n  </div>\n</div>\n\n\n"
+module.exports = "<div >\n  <h1 class=\"project-heading\"> Project Manager!</h1>\n  <app-header></app-header>  \n  <div class=\"container\">\n    <router-outlet></router-outlet>\n  </div>\n</div>\n\n\n"
 
 /***/ }),
 
@@ -3449,14 +3449,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
-/* harmony import */ var ngx_filter_pipe__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-filter-pipe */ "./node_modules/ngx-filter-pipe/esm5/ngx-filter-pipe.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _components_header_header_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/header/header.component */ "./src/app/components/header/header.component.ts");
-/* harmony import */ var _components_add_user_add_user_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/add-user/add-user.component */ "./src/app/components/add-user/add-user.component.ts");
-/* harmony import */ var _components_add_project_add_project_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/add-project/add-project.component */ "./src/app/components/add-project/add-project.component.ts");
-/* harmony import */ var _components_add_task_add_task_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/add-task/add-task.component */ "./src/app/components/add-task/add-task.component.ts");
-/* harmony import */ var _components_view_task_view_task_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/view-task/view-task.component */ "./src/app/components/view-task/view-task.component.ts");
-/* harmony import */ var _services_backend_api_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./services/backend-api.service */ "./src/app/services/backend-api.service.ts");
+/* harmony import */ var _pipes_filter_pipe__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pipes/filter.pipe */ "./src/app/pipes/filter.pipe.ts");
+/* harmony import */ var ngx_order_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-order-pipe */ "./node_modules/ngx-order-pipe/ngx-order-pipe.es5.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _components_header_header_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/header/header.component */ "./src/app/components/header/header.component.ts");
+/* harmony import */ var _components_add_user_add_user_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/add-user/add-user.component */ "./src/app/components/add-user/add-user.component.ts");
+/* harmony import */ var _components_add_project_add_project_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/add-project/add-project.component */ "./src/app/components/add-project/add-project.component.ts");
+/* harmony import */ var _components_add_task_add_task_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/add-task/add-task.component */ "./src/app/components/add-task/add-task.component.ts");
+/* harmony import */ var _components_view_task_view_task_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/view-task/view-task.component */ "./src/app/components/view-task/view-task.component.ts");
+/* harmony import */ var _services_backend_api_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./services/backend-api.service */ "./src/app/services/backend-api.service.ts");
+
 
 
 
@@ -3473,11 +3475,11 @@ __webpack_require__.r(__webpack_exports__);
 
 //creating routes with path and component
 var APP_ROUTES = [
-    { path: '', component: _components_add_user_add_user_component__WEBPACK_IMPORTED_MODULE_9__["AddUserComponent"] },
-    { path: 'adduser', component: _components_add_user_add_user_component__WEBPACK_IMPORTED_MODULE_9__["AddUserComponent"] },
-    { path: 'addproject', component: _components_add_project_add_project_component__WEBPACK_IMPORTED_MODULE_10__["AddProjectComponent"] },
-    { path: 'addtask', component: _components_add_task_add_task_component__WEBPACK_IMPORTED_MODULE_11__["AddTaskComponent"] },
-    { path: 'viewtask', component: _components_view_task_view_task_component__WEBPACK_IMPORTED_MODULE_12__["ViewTaskComponent"] }
+    { path: '', component: _components_add_user_add_user_component__WEBPACK_IMPORTED_MODULE_10__["AddUserComponent"] },
+    { path: 'adduser', component: _components_add_user_add_user_component__WEBPACK_IMPORTED_MODULE_10__["AddUserComponent"] },
+    { path: 'addproject', component: _components_add_project_add_project_component__WEBPACK_IMPORTED_MODULE_11__["AddProjectComponent"] },
+    { path: 'addtask', component: _components_add_task_add_task_component__WEBPACK_IMPORTED_MODULE_12__["AddTaskComponent"] },
+    { path: 'viewtask', component: _components_view_task_view_task_component__WEBPACK_IMPORTED_MODULE_13__["ViewTaskComponent"] }
 ];
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -3485,22 +3487,23 @@ var AppModule = /** @class */ (function () {
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"],
-                _components_header_header_component__WEBPACK_IMPORTED_MODULE_8__["HeaderComponent"],
-                _components_add_user_add_user_component__WEBPACK_IMPORTED_MODULE_9__["AddUserComponent"],
-                _components_add_project_add_project_component__WEBPACK_IMPORTED_MODULE_10__["AddProjectComponent"],
-                _components_add_task_add_task_component__WEBPACK_IMPORTED_MODULE_11__["AddTaskComponent"],
-                _components_view_task_view_task_component__WEBPACK_IMPORTED_MODULE_12__["ViewTaskComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"],
+                _components_header_header_component__WEBPACK_IMPORTED_MODULE_9__["HeaderComponent"],
+                _components_add_user_add_user_component__WEBPACK_IMPORTED_MODULE_10__["AddUserComponent"],
+                _components_add_project_add_project_component__WEBPACK_IMPORTED_MODULE_11__["AddProjectComponent"],
+                _components_add_task_add_task_component__WEBPACK_IMPORTED_MODULE_12__["AddTaskComponent"],
+                _components_view_task_view_task_component__WEBPACK_IMPORTED_MODULE_13__["ViewTaskComponent"],
+                _pipes_filter_pipe__WEBPACK_IMPORTED_MODULE_6__["FilterPipe"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
-                ngx_filter_pipe__WEBPACK_IMPORTED_MODULE_6__["FilterPipeModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot(APP_ROUTES),
-                _angular_http__WEBPACK_IMPORTED_MODULE_5__["HttpModule"]
+                _angular_http__WEBPACK_IMPORTED_MODULE_5__["HttpModule"],
+                ngx_order_pipe__WEBPACK_IMPORTED_MODULE_7__["OrderModule"]
             ],
-            providers: [_services_backend_api_service__WEBPACK_IMPORTED_MODULE_13__["BackendApiService"]],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
+            providers: [_services_backend_api_service__WEBPACK_IMPORTED_MODULE_14__["BackendApiService"], _pipes_filter_pipe__WEBPACK_IMPORTED_MODULE_6__["FilterPipe"]],
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -3528,7 +3531,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"shadow-none mb-5  rounded\">\n\n  <div class=\"alert alert-success d-none\" role=\"alert\" id=\"alert\"> </div>\n  <div>\n    <form class=\"col-sm-8 mt-5\">\n      <div class=\"form-group row\">\n        <label for=\"projectname\" class=\"col-sm-3 col-form-label\">Project:</label>\n        <div class=\"col-sm-8\">\n          <input type=\"text\" name=\"projectname\" [(ngModel)]=\"project.Project\" class=\"form-control\" id=\"Project\">\n        </div>\n      </div>\n\n      <div class=\"row mb-3\">\n        <div class=\"col-sm-3\"></div>\n        <div class=\"col-sm-8\">\n          <input type=\"checkbox\" name=\"check\" [(ngModel)]=\"project.checked\"\n            aria-label=\"Checkbox for Select Start and End Date\"> Select Start\n          and End Date\n\n          <input type=\"date\" class=\"\" id=\"startDt\" [min]=\"currentDate\" name=\"startDt\" [(ngModel)]=\"project.startDate\"\n            placeholder=\"Start date\" [disabled]=\"!project.checked\" value={{currentDate}}>\n\n          <input type=\"date\" class=\"\" id=\"endDt\" name=\"endDt\" [(ngModel)]=\"project.endDate\" placeholder=\"End Date\"\n            [disabled]=\"!project.checked\" [min]=\"currentDate\" value=\"{{defaultEndDt}}\">\n        </div>\n      </div>\n\n      <div class=\"form-group row\">\n        <label for=\"priority\" class=\"col-sm-3 col-form-label\">Priority: </label>\n        <div class=\"col-sm-8\">\n          <span class=\"\">0</span> <span class=\"float-right\">30</span>\n          <input type=\"range\" class=\"form-control slider\" id=\"priority\" [min]=\"0\" [max]=\"30\" name=\"priority\"\n            placeholder=\"priority\" [(ngModel)]=\"Priority\">\n        </div>\n      </div>\n\n      <div class=\"form-group row\">\n        <label for=\"manager\" class=\"col-sm-3 col-form-label\">Manager:</label>\n        <div class=\"row col-sm-8\">\n          <input class=\"col-sm-7\" type=\"text\" readonly [(ngModel)]=\"project.Manager\" name=\"manager\"\n            [ngModelOptions]=\"{standalone: true}\" class=\"form-control\" id=\"manager\">\n          <button type=\"button\" class=\"btn btn-secondary pl-1 col-sm-2\" data-toggle=\"modal\"\n            data-target=\"#myModal\">search</button>\n        </div>\n      </div>\n\n      <!-- The Modal -->\n      <div class=\"modal\" id=\"myModal\">\n        <div class=\"modal-dialog\">\n          <div class=\"modal-content\">\n            <div class=\"modal-header\">\n              <h4 class=\"modal-title\">Select Manager</h4>\n              <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n            </div>\n            <div class=\"modal-body\">\n              <input type=\"search\" placeholder=\"Search\" name=\"search\" [(ngModel)]=\"searchManager\" />\n              <ul>\n                <li *ngFor=\"let user of users\" (click)=\"selectManager(user)\">\n                  {{user.First_Name}} {{user.Last_Name}}\n                </li>\n              </ul>\n\n            </div>\n            <div class=\"modal-footer\">\n              <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button>\n            </div>\n\n          </div>\n        </div>\n      </div>\n\n      <div class=\"col-sm-9 text-center\">\n        <button type=\"button\" class=\"btn btn-secondary  mr-2\" (click)=\"addProject(project)\" [hidden]=\"project.edit\">Add\n        </button>\n        <button type=\"button\" class=\"btn btn-secondary  mr-2\" (click)=\"updateProject(project)\"\n          [hidden]=\"!project.edit\">Update </button>\n        <button type=\"button\" class=\"btn btn-secondary\" (click)=\"reset()\">Reset</button>\n      </div>\n\n    </form>\n  </div>\n  <hr size=\"30\" style=\"clear:both;\">\n\n  <div class=\"view-users col-sm-12\">\n    <div>\n      <div class=\"col-sm-12\">\n        <input class=\"col-sm-6\" type=\"search\" ng-model=\"search\" (blur)=\"filterUsers(search)\" placeholder=\"search..\" />\n      </div>\n\n      Sort By: <button type=\"button\" class=\"btn btn-secondary  mr-2\" (click)=\"filterUsers(search)\">Start Date</button>\n      <button type=\"button\" class=\"btn btn-secondary  mr-2\" (click)=\"filterUsers(search)\">End Date </button>\n      <button type=\"button\" class=\"btn btn-secondary  mr-2\" (click)=\"filterUsers(search)\">Priority </button>\n      <button type=\"button\" class=\"btn btn-secondary  mr-2\" (click)=\"filterUsers(search)\">Completed </button>\n    </div>\n    <ul class=\"col-sm-12 list-group\">\n      <li *ngFor=\"let proj of projects\" class=\" list-group-item\">\n        <div class=\"row\">\n          <div class=\"col-sm-6\">\n            Project:<input class=\"col-sm-6\" type=\"text\" readonly [(ngModel)]=\"proj.Project\" name=\"Project\"\n              [ngModelOptions]=\"{standalone: true}\" class=\"form-control\">\n            No. of Tasks: <input class=\"col-sm-3\" type=\"text\" readonly [(ngModel)]=\"proj.Manager\" name=\"manager\"\n              [ngModelOptions]=\"{standalone: true}\" class=\"form-control\">\n            Completed: <input class=\"col-sm-3\" type=\"text\" readonly [(ngModel)]=\"proj.Manager\" name=\"completed\"\n              [ngModelOptions]=\"{standalone: true}\" class=\"form-control\">\n            Start Date: <input class=\"col-sm-3\" type=\"text\" readonly [(ngModel)]=\"proj.Start_Date\" name=\"startDt\"\n              [ngModelOptions]=\"{standalone: true}\" class=\"form-control\">\n            End Date:<input class=\"col-sm-3\" type=\"text\" readonly [(ngModel)]=\"proj.End_Date\" name=\"endDt\"\n              [ngModelOptions]=\"{standalone: true}\" class=\"form-control\">\n          </div>\n          <div class=\"col-sm-3\">\n            Priority: <input class=\"col-sm-9\" type=\"text\" readonly [(ngModel)]=\"proj.Priority\" name=\"endDt\"\n              [ngModelOptions]=\"{standalone: true}\" class=\"form-control\">\n\n          </div>\n          <div class=\"col-sm-3\">\n            <button type=\"button\" class=\"btn btn-secondary  mr-2\" (click)=\"EditProject(proj)\">Update </button>\n            <button type=\"button\" class=\"btn btn-secondary  mr-2\" (click)=\"suspend()\">Suspend </button>\n          </div>\n        </div>\n\n      </li>\n    </ul>\n  </div>\n\n\n</div>"
+module.exports = "<div class=\"shadow-none mb-5 col-sm-8 rounded\">\n\n  <div class=\"alert alert-success d-none\" role=\"alert\" id=\"alert\"> </div>\n  <div>\n    <form #addProj=\"ngForm\" class=\"col-sm-12 mt-5\">\n      <div class=\"form-group row\">\n        <label for=\"projectname\" class=\"col-sm-2 col-form-label\">*Project:</label>\n        <div class=\"col-sm-8\">\n          <input type=\"text\" name=\"projectname\" [(ngModel)]=\"project.Project\" class=\"form-control\" id=\"Project\" required\n            #projectname=\"ngModel\">\n          <div [hidden]=\"projectname.valid || projectname.pristine\" class=\"alert alert-danger\">\n            Project Name is required\n          </div>\n        </div>\n      </div>\n\n      <div class=\"row mb-3\">\n        <div class=\"col-sm-2\"></div>\n        <div class=\"col-sm-8 row ml-0\">\n          <input type=\"checkbox\" class=\"mt-2\" name=\"check\" [(ngModel)]=\"project.checked\" (change)=\"assignDefault()\"\n            aria-label=\"Checkbox for Select Start and End Date\"> <span class=\"mt-1 ml-2 mr-2\"> Start and End Date</span>\n          <label for=\"startDt\"> </label>\n          <input type=\"date\" class=\"form-control col-sm-4  mr-3\" id=\"startDt\" [min]=\"currentDate\" name=\"startDt\"\n            [(ngModel)]=\"project.startDate\" placeholder=\"Start date\" [disabled]=\"!project.checked\"\n            (change)='checkDateErr(project.startDate,project.endDate)'>\n          <label for=\"endDt\"> </label>\n          <input type=\"date\" class=\"form-control col-sm-4\" id=\"endDt\" name=\"endDt\" [(ngModel)]=\"project.endDate\"\n            (change)='checkDateErr(project.startDate,project.endDate)' placeholder=\"End Date\"\n            [disabled]=\"!project.checked\" [min]=\"currentDate\">\n          <div class=\"alert-danger\">{{errMessage}}</div>\n        </div>\n      </div>\n\n      <div class=\"form-group row\">\n        <label for=\"priority\" class=\"col-sm-2 col-form-label\">Priority: </label>\n        <div class=\"col-sm-8\">\n          <span class=\"\">0</span> <span class=\"float-right\">30</span>\n          <input type=\"range\" class=\"form-control slider\" id=\"priority\" [min]=\"0\" [max]=\"30\" name=\"priority\"\n            placeholder=\"priority\" [(ngModel)]=\"Priority\">\n        </div>\n      </div>\n\n      <div class=\"form-group row\">\n        <label for=\"manager\" class=\"col-sm-2 col-form-label\">Manager:</label>\n        <div class=\"col-sm-8\">\n          <input class=\"form-control col-sm-9 float-left mr-3\" type=\"text\" readonly [(ngModel)]=\"project.Manager\"\n            name=\"manager\" [ngModelOptions]=\"{standalone: true}\" id=\"manager\">\n          <button type=\"button\" class=\"btn btn-secondary pl-1 col-sm-2\" data-toggle=\"modal\"\n            data-target=\"#myModal\">search</button>\n        </div>\n      </div>\n\n      <!-- The Modal -->\n      <div class=\"modal\" id=\"myModal\">\n        <div class=\"modal-dialog\">\n          <div class=\"modal-content\">\n            <div class=\"modal-header\">\n              <h4 class=\"modal-title\">Select Manager</h4>\n              <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n            </div>\n            <div class=\"modal-body\">\n              <input type=\"search\" class=\"form-control\" placeholder=\"Search by user first name\" name=\"search\" [(ngModel)]=\"searchManager\" />\n              <ul>\n                <li *ngFor=\"let user of users |filter : searchManager: 'First_Name'\" (click)=\"selectManager(user)\">\n                  {{user.First_Name}} {{user.Last_Name}}\n                </li>\n              </ul>\n\n            </div>\n            <div class=\"modal-footer\">\n              <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button>\n            </div>\n\n          </div>\n        </div>\n      </div>\n\n      <div class=\"col-sm-9 text-center\">\n        <button type=\"submit\" class=\"btn btn-secondary  mr-2\" (click)=\"addProject(project)\" [hidden]=\"project.edit\"\n          [disabled]=\"!addProj.form.valid\">Add\n        </button>\n        <button type=\"button\" class=\"btn btn-secondary  mr-2\" (click)=\"updateProject(project)\" [hidden]=\"!project.edit\"\n          [disabled]=\"!addProj.form.valid\">Update </button>\n        <input type=\"reset\" class=\"btn btn-secondary\" value=\"Reset\" id=\"reset\">\n      </div>\n\n    </form>\n  </div>\n  <hr size=\"30\" class=\"border border-secondary\">\n\n  <div class=\"view-users col-sm-12\">\n    <div class=\"mb-2\">\n      <div class=\"col-sm-12\">\n        <input class=\"col-sm-10 form-control mb-4\" type=\"search\" name=\"search\" [(ngModel)]=\"search\"\n          placeholder=\"search by project name\" />\n      </div>\n\n      <span class=\"mr-3\">Sort By: </span><button type=\"button\" class=\"btn btn-secondary col-sm-2 mr-2\"\n        (click)=\"filterProjects('Start_Date')\">Start\n        Date</button>\n      <button type=\"button\" class=\"btn btn-secondary col-sm-2 mr-2\" (click)=\"filterProjects('End_Date')\">End Date\n      </button>\n      <button type=\"button\" class=\"btn btn-secondary col-sm-2 mr-2\" (click)=\"filterProjects('Priority')\">Priority\n      </button>\n      <button type=\"button\" class=\"btn btn-secondary col-sm-2 mr-2\" (click)=\"filterProjects('NumOfTasksComp')\">Completed\n      </button>\n    </div>\n    <ul class=\"col-sm-12 list-group\">\n      <li *ngFor=\"let proj of projects |filter : search: 'Project'\" class=\" list-group-item\">\n        <div class=\"row\">\n          <div class=\"col-sm-8 form-control\">\n            <label for=\"Project\" class=\"col-form-label\">Project: </label> {{proj.Project}}\n            <!-- <input class=\"col-sm-6\" type=\"text\" readonly [(ngModel)]=\"proj.Project\" name=\"Project\"\n              [ngModelOptions]=\"{standalone: true}\" class=\"form-control\"> -->\n            <div class=\"row\">\n              <p class=\"col-sm-6 mb-0\">\n                <label for=\"NumOfTasks\" class=\"col-form-label\">No. of Tasks: </label> {{proj.NumOfTasks}}\n              </p>\n              <!-- <input class=\"col-sm-3\" type=\"text\"\n                readonly [(ngModel)]=\"proj.NumOfTasks\" name=\"NumOfTasks\" [ngModelOptions]=\"{standalone: true}\"\n                class=\"form-control\"> -->\n              <p class=\"col-sm-6 mb-0\">\n                <label for=\"completed\" class=\"col-form-label\">Completed: </label> {{proj.NumOfTasksComp}}\n              </p>\n              <!-- <input class=\"col-sm-3\" type=\"text\"\n                readonly [(ngModel)]=\"proj.NumOfTasksComp\" name=\"completed\" [ngModelOptions]=\"{standalone: true}\"\n                class=\"form-control\"> -->\n            </div>\n            <div class=\"row\">\n              <p class=\"col-sm-6 mb-0\">\n                <label for=\"startDt\" class=\"col-form-label\">Start Date: </label> {{proj.Start_Date}}\n              </p>\n              <p class=\"col-sm-6 mb-0\">\n                <label for=\"endDt\" class=\"col-form-label\">End Date: </label> {{proj.End_Date}}\n              </p>\n              <!-- <input class=\"col-sm-3\" type=\"text\"\n                readonly [(ngModel)]=\"proj.Start_Date\" name=\"startDt\" [ngModelOptions]=\"{standalone: true}\"\n                class=\"form-control\"> -->\n\n              <!-- <input class=\"col-sm-3\" type=\"text\" readonly\n                [(ngModel)]=\"proj.End_Date\" name=\"endDt\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control\"> -->\n            </div>\n\n          </div>\n          <div class=\"col-sm-2\">\n            <label for=\"priority\" class=\"col-form-label\">Priority: </label>\n            <p class=\"pb-5 form-control\">{{proj.Priority}}</p>\n            <!-- Priority: <input class=\"col-sm-9\" type=\"text\" readonly [(ngModel)]=\"proj.Priority\" name=\"endDt\"\n              [ngModelOptions]=\"{standalone: true}\" class=\"form-control\"> -->\n\n          </div>\n          <div class=\"col-sm-2 mt-3\">\n            <button type=\"button\" class=\"btn btn-secondary col-sm-10 mb-2\" (click)=\"EditProject(proj)\">Update </button>\n            <button type=\"button\" class=\"btn btn-secondary col-sm-10 mr-2\" (click)=\"suspend()\">Suspend </button>\n          </div>\n        </div>\n\n      </li>\n    </ul>\n  </div>\n\n\n</div>"
 
 /***/ }),
 
@@ -3545,12 +3548,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_backend_api_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/backend-api.service */ "./src/app/services/backend-api.service.ts");
+/* harmony import */ var ngx_order_pipe__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-order-pipe */ "./node_modules/ngx-order-pipe/ngx-order-pipe.es5.js");
+
 
 
 
 var AddProjectComponent = /** @class */ (function () {
-    function AddProjectComponent(BackendApiService) {
+    function AddProjectComponent(BackendApiService, orderPipe) {
         this.BackendApiService = BackendApiService;
+        this.orderPipe = orderPipe;
         this.project = {
             'Project': '',
             'Priority': 0,
@@ -3560,15 +3566,25 @@ var AddProjectComponent = /** @class */ (function () {
             'edit': false
         };
         this.reset = function () {
-            this.project = {};
+            document.getElementById('reset').click();
             this.Priority = 0;
+        };
+        this.assignDefault = function () {
+            if (this.project.checked) {
+                this.project.startDate = this.currentDate;
+                this.project.endDate = this.defaultEndDt;
+            }
+            else {
+                this.project.startDate = '';
+                this.project.endDate = '';
+            }
         };
         this.addProject = function () {
             var _this = this;
             var request = {
                 'Project': this.project.Project,
-                'Start_Date': this.project.startDate == "" ? this.defaultEndDt : this.project.startDate,
-                'End_Date': this.project.endDate == "" ? this.currentDate : this.project.endDate,
+                'Start_Date': this.project.startDate,
+                'End_Date': this.project.endDate,
                 'Priority': this.Priority,
                 'Manager': this.project.Manager
             };
@@ -3598,15 +3614,16 @@ var AddProjectComponent = /** @class */ (function () {
             var request = {
                 '_id': this.project._id,
                 'Project': this.project.Project,
-                'Start_Date': this.project.startDate == "" ? this.defaultEndDt : this.project.startDate,
-                'End_Date': this.project.endDate == "" ? this.currentDate : this.project.endDate,
+                'Start_Date': this.project.startDate,
+                'End_Date': this.project.endDate,
                 'Priority': this.Priority,
                 'Manager': this.project.Manager
             };
             this.BackendApiService.updateProject(request).subscribe(function (res) {
-                document.getElementById('alert').innerHTML = 'Added Project Successfully!';
+                document.getElementById('alert').innerHTML = 'Updated Project Successfully!';
                 document.getElementById('alert').classList.remove('d-none');
                 _this.reset();
+                _this.project.edit = false;
                 _this.getProjectsList();
             });
             setTimeout(function () {
@@ -3618,6 +3635,7 @@ var AddProjectComponent = /** @class */ (function () {
             this.BackendApiService.getProjectsList().subscribe(function (res) {
                 _this.projects = res;
                 _this.projectsCopy = res;
+                _this.getTasksList();
             });
         };
         this.getUersList = function () {
@@ -3625,6 +3643,22 @@ var AddProjectComponent = /** @class */ (function () {
             this.BackendApiService.getUsersList().subscribe(function (res) {
                 _this.users = res;
                 _this.usersCopy = res;
+            });
+        };
+        this.getTasksList = function () {
+            var _this = this;
+            this.projects.forEach(function (element) {
+                var count = 0;
+                var id = element._id;
+                element.NumOfTasksComp = count;
+                _this.BackendApiService.getTasksList(id).subscribe(function (res) {
+                    _this.tasks = res;
+                    element.NumOfTasks = res.length;
+                    res.forEach(function (task) {
+                        (task.Status == true) ? count++ : count;
+                        element.NumOfTasksComp = count;
+                    });
+                });
             });
         };
         this.getcurrentDate = function () {
@@ -3650,10 +3684,24 @@ var AddProjectComponent = /** @class */ (function () {
             this.project.Manager = user.First_Name + " " + user.Last_Name;
             this.searchManager = '';
         };
+        this.filterProjects = function (searchby) {
+            if (searchby) {
+                this.projects = this.orderPipe.transform(this.projectsCopy, searchby);
+            }
+        };
+        this.checkDateErr = function (startDate, endDate) {
+            this.errMessage = '';
+            if (Date.parse(startDate) >= Date.parse(endDate)) {
+                this.errMessage = 'End Date should be greater than start date';
+                this.project.endDate = '';
+                return false;
+            }
+        };
     }
     AddProjectComponent.prototype.ngOnInit = function () {
         this.currentDate = this.getcurrentDate().requestDt;
         this.defaultEndDt = this.getcurrentDate().defaultEndDt;
+        this.Priority = 0;
         this.getUersList();
         this.getProjectsList();
     };
@@ -3663,7 +3711,7 @@ var AddProjectComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./add-project.component.html */ "./src/app/components/add-project/add-project.component.html"),
             styles: [__webpack_require__(/*! ./add-project.component.css */ "./src/app/components/add-project/add-project.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_backend_api_service__WEBPACK_IMPORTED_MODULE_2__["BackendApiService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_backend_api_service__WEBPACK_IMPORTED_MODULE_2__["BackendApiService"], ngx_order_pipe__WEBPACK_IMPORTED_MODULE_3__["OrderPipe"]])
     ], AddProjectComponent);
     return AddProjectComponent;
 }());
@@ -3690,7 +3738,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"shadow-none mb-5  rounded\">\n  <div class=\"alert alert-success d-none\" role=\"alert\" id=\"alert\"></div>\n  <div>\n    <form class=\"col-sm-8 mt-5\">\n      <div class=\"form-group row\">\n        <label for=\"project\" class=\"col-sm-3 col-form-label\">Project:</label>\n        <div class=\"col-sm-8\">\n          <input class=\"form-control col-sm-9 float-left mr-3\" type=\"text\" readonly name=\"project\" [(ngModel)]=\"task.Project\"\n            id=\"project\" >\n          <button type=\"button\" class=\"btn btn-secondary pl-1 col-sm-2\" data-toggle=\"modal\" [disabled]=\"task.checked ||updateData.edit\" \n            data-target=\"#projectModal\">search</button>\n        </div>\n      </div>\n      <!-- The Modal -->\n      <div class=\"modal\" id=\"projectModal\">\n        <div class=\"modal-dialog\">\n          <div class=\"modal-content\">\n            <div class=\"modal-header\">\n              <h4 class=\"modal-title\">Select Project</h4>\n              <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n            </div>\n            <div class=\"modal-body\">\n              <input type=\"search\" placeholder=\"Search\" name=\"search\" [(ngModel)]=\"searchProject\" [disabled]=\"task.checked\"/>\n              <ul>\n                <li *ngFor=\"let proj of projects\" (click)=\"selectProject(proj)\">\n                  {{proj.Project}}\n                </li>\n              </ul>\n\n            </div>\n            <div class=\"modal-footer\">\n              <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button>\n            </div>\n\n          </div>\n        </div>\n      </div>\n\n\n      <div class=\"form-group row\">\n        <label for=\"task\" class=\"col-sm-3 col-form-label\">Task:</label>\n        <div class=\"col-sm-8\">\n          <input type=\"text\" name=\"taskname\" [(ngModel)]=\"task.TaskName\" class=\"form-control\" id=\"task\">\n        </div>\n      </div>\n      <div class=\"row mb-3\">\n        <div class=\"col-sm-3\"></div>\n        <div class=\"col-sm-8\">\n          <input type=\"checkbox\" name=\"check\" [(ngModel)]=\"task.checked\" [disabled]=\"updateData.edit\"\n            aria-label=\"Check if you want to make it as parent task\"> Parent Task\n        </div>\n      </div>\n      <div class=\"form-group row\">\n        <label for=\"priority\" class=\"col-sm-3 col-form-label\">Priority: </label>\n        <div class=\"col-sm-8\">\n          <span class=\"\">0</span> <span class=\"float-right\">30</span>\n          <input type=\"range\" class=\"form-control slider\" id=\"priority\" [min]=\"0\" [max]=\"30\" placeholder=\"priority\" [disabled]=\"task.checked\"\n            name=\"priority\" [(ngModel)]=\"task.Priority\">\n        </div>\n      </div>\n      <div class=\"form-group row\">\n        <label for=\"parenttask\" class=\"col-sm-3 col-form-label\">Parent Task: </label>\n        <div class=\"col-sm-8\">\n          <input class=\"form-control col-sm-9 float-left mr-3\" type=\"text\" readonly name=\"parenttask\" [(ngModel)]=\"task.parent\" \n            id=\"parent\">\n          <button type=\"button\" class=\"btn btn-secondary pl-1 col-sm-2\" data-toggle=\"modal\" [disabled]=\"task.checked\"\n            data-target=\"#parentModal\">search</button>\n        </div>\n      </div>\n\n      <!-- The Parent Modal -->\n      <div class=\"modal\" id=\"parentModal\">\n        <div class=\"modal-dialog\">\n          <div class=\"modal-content\">\n            <div class=\"modal-header\">\n              <h4 class=\"modal-title\">Select Parent</h4>\n              <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n            </div>\n            <div class=\"modal-body\">\n              <input type=\"search\" placeholder=\"Search\" name=\"search\" [(ngModel)]=\"searchParent\" />\n              <ul>\n                <li *ngFor=\"let parent of parentTasks\" (click)=\"selectParent(parent)\">\n                  {{parent.Parent_Task}}\n                </li>\n                <li (click)=\"selectParent('No Parent')\">No Parent</li>\n              </ul>\n            </div>\n            <div class=\"modal-footer\">\n              <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button>\n            </div>\n\n          </div>\n        </div>\n      </div>\n\n\n\n      <div class=\"form-group row\">\n        <label for=\"startDt\" class=\"col-sm-3 col-form-label\">Start Date: </label>\n        <div class=\"col-sm-3\">\n          <input type=\"date\" class=\"form-control\" id=\"startDt\" [min]=\"currentDate\" name=\"startDt\" [disabled]=\"task.checked\"\n            [(ngModel)]=\"task.startDate\">\n        </div>\n        <label for=\"endDt\" class=\"col-sm-2 col-form-label\">End Date: </label>\n        <div class=\"col-sm-3\">\n          <input type=\"date\" class=\"form-control\" id=\"endDt\" [min]=\"currentDate\" name=\"endDt\" [(ngModel)]=\"task.endDate\" [disabled]=\"task.checked\">\n        </div>\n      </div>\n\n      <div class=\"form-group row\">\n        <label for=\"user\" class=\"col-sm-3 col-form-label\">User: </label>\n        <div class=\"col-sm-8\">\n          <input class=\"form-control col-sm-9 float-left mr-3\" type=\"text\" readonly name=\"parent\" [(ngModel)]=\"task.user\" \n            id=\"parent\">\n          <button type=\"button\" class=\"btn btn-secondary pl-1 col-sm-2\" data-toggle=\"modal\" [disabled]=\"task.checked\"\n            data-target=\"#userModal\">search</button>\n        </div>\n      </div>\n\n      <!-- The user Modal -->\n      <div class=\"modal\" id=\"userModal\">\n        <div class=\"modal-dialog\">\n          <div class=\"modal-content\">\n            <div class=\"modal-header\">\n              <h4 class=\"modal-title\">Select User</h4>\n              <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n            </div>\n            <div class=\"modal-body\">\n              <input type=\"search\" placeholder=\"Search\" name=\"search\" [(ngModel)]=\"searchUser\" />\n              <ul>\n                <li *ngFor=\"let user of users\" (click)=\"selectUser(user)\">\n                  {{user.First_Name}} {{user.Last_Name}}\n                </li>\n              </ul>\n            </div>\n            <div class=\"modal-footer\">\n              <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button>\n            </div>\n\n          </div>\n        </div>\n      </div>\n\n      <div class=\"col-sm-9 float-right\" [hidden]=\"updateData.edit\">\n        <button type=\"button\" class=\"btn btn-secondary  mr-2\" (click)=\"addTask(task)\">Add Task </button>\n        <button type=\"button\" class=\"btn btn-secondary\" (click)=\"reset()\">Reset</button>\n      </div>\n      <div class=\"col-sm-9 float-right\" [hidden]=\"!updateData.edit\">\n        <button type=\"button\" class=\"btn btn-secondary  mr-2\" (click)=\"updateTask(task)\">Update </button>\n        <button type=\"button\" class=\"btn btn-secondary\" (click)=\"Cancel()\">Cancel</button>\n      </div>\n\n    </form>\n  </div>\n\n</div>"
+module.exports = "<div class=\"shadow-none mb-5  rounded\">\n  <div class=\"alert alert-success d-none\" role=\"alert\" id=\"alert\"></div>\n  <div>\n    <form #addtask=\"ngForm\" class=\"col-sm-8 mt-5\">\n      <div class=\"form-group row\">\n        <label for=\"project\" class=\"col-sm-2 col-form-label\">Project:</label>\n        <div class=\"col-sm-8\">\n          <input class=\"form-control col-sm-9 float-left mr-3\" type=\"text\" readonly name=\"project\"\n            [(ngModel)]=\"task.Project\" id=\"project\">\n          <button type=\"button\" class=\"btn btn-secondary pl-1 col-sm-2\" data-toggle=\"modal\"\n            [disabled]=\"task.checked ||updateData.edit\" data-target=\"#projectModal\">search</button>\n        </div>\n      </div>\n      <!-- The Modal -->\n      <div class=\"modal\" id=\"projectModal\">\n        <div class=\"modal-dialog\">\n          <div class=\"modal-content\">\n            <div class=\"modal-header\">\n              <h4 class=\"modal-title\">Select Project</h4>\n              <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n            </div>\n            <div class=\"modal-body\">\n              <input type=\"search\" class=\"form-control\" placeholder=\"Search\" name=\"search\" [(ngModel)]=\"searchProject\"\n                [disabled]=\"task.checked\" />\n              <ul>\n                <li *ngFor=\"let proj of projects |filter : searchProject: 'Project'\" (click)=\"selectProject(proj)\">\n                  {{proj.Project}}\n                </li>\n              </ul>\n\n            </div>\n            <div class=\"modal-footer\">\n              <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button>\n            </div>\n\n          </div>\n        </div>\n      </div>\n\n\n      <div class=\"form-group row\">\n        <label for=\"task\" class=\"col-sm-2 col-form-label\">*Task:</label>\n        <div class=\"col-sm-8\">\n          <input type=\"text\" name=\"taskname\" [(ngModel)]=\"task.TaskName\" class=\"form-control\" id=\"task\" required #taskname=\"ngModel\">\n          <div [hidden]=\"taskname.valid || taskname.pristine\" class=\"alert alert-danger\">\n            Task Name is required\n         </div>\n        </div>\n      </div>\n      <div class=\"row mb-3\">\n        <div class=\"col-sm-2\"></div>\n        <div class=\"col-sm-8\">\n          <input type=\"checkbox\" name=\"check\" [(ngModel)]=\"task.checked\" [disabled]=\"updateData.edit\"\n            aria-label=\"Check if you want to make it as parent task\"> Parent Task\n        </div>\n      </div>\n      <div class=\"form-group row\">\n        <label for=\"priority\" class=\"col-sm-2 col-form-label\">Priority: </label>\n        <div class=\"col-sm-8\">\n          <span class=\"\">0</span> <span class=\"float-right\">30</span>\n          <input type=\"range\" class=\"form-control slider\" id=\"priority\" [min]=\"0\" [max]=\"30\" placeholder=\"priority\"\n            [disabled]=\"task.checked\" name=\"priority\" [(ngModel)]=\"task.Priority\">\n        </div>\n      </div>\n      <div class=\"form-group row\">\n        <label for=\"parenttask\" class=\"col-sm-2 col-form-label\">Parent Task: </label>\n        <div class=\"col-sm-8\">\n          <input class=\"form-control col-sm-9 float-left mr-3\" type=\"text\" readonly name=\"parenttask\"\n            [(ngModel)]=\"task.parent\" id=\"parent\">\n          <button type=\"button\" class=\"btn btn-secondary pl-1 col-sm-2\" data-toggle=\"modal\" [disabled]=\"task.checked\"\n            data-target=\"#parentModal\">search</button>\n        </div>\n      </div>\n\n      <!-- The Parent Modal -->\n      <div class=\"modal\" id=\"parentModal\">\n        <div class=\"modal-dialog\">\n          <div class=\"modal-content\">\n            <div class=\"modal-header\">\n              <h4 class=\"modal-title\">Select Parent</h4>\n              <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n            </div>\n            <div class=\"modal-body\">\n              <input type=\"search\" class=\"form-control\" placeholder=\"Search\" name=\"search\" [(ngModel)]=\"searchParent\" />\n              <ul>\n                <li *ngFor=\"let parent of parentTasks |filter : searchParent: 'Parent_Task'\"\n                  (click)=\"selectParent(parent)\">\n                  {{parent.Parent_Task}}\n                </li>\n                <li (click)=\"selectParent('No Parent')\">No Parent</li>\n              </ul>\n            </div>\n            <div class=\"modal-footer\">\n              <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button>\n            </div>\n\n          </div>\n        </div>\n      </div>\n\n\n\n      <div class=\"form-group row\">\n        <label for=\"startDt\" class=\"col-sm-2 col-form-label\">Start Date: </label>\n        <div class=\"col-sm-3\">\n          <input type=\"date\" class=\"form-control\" id=\"startDt\" [min]=\"currentDate\" name=\"startDt\"\n            [disabled]=\"task.checked\" [(ngModel)]=\"task.startDate\">\n        </div>\n        <label for=\"endDt\" class=\"col-sm-2 col-form-label\">End Date: </label>\n        <div class=\"col-sm-3\">\n          <input type=\"date\" class=\"form-control\" id=\"endDt\" [min]=\"currentDate\" name=\"endDt\" [(ngModel)]=\"task.endDate\"\n            [disabled]=\"task.checked\">\n        </div>\n      </div>\n\n      <div class=\"form-group row\">\n        <label for=\"user\" class=\"col-sm-2 col-form-label\">User: </label>\n        <div class=\"col-sm-8\">\n          <input class=\"form-control col-sm-9 float-left mr-3\" type=\"text\" readonly name=\"parent\"\n            [(ngModel)]=\"task.user\" id=\"parent\">\n          <button type=\"button\" class=\"btn btn-secondary pl-1 col-sm-2\" data-toggle=\"modal\" [disabled]=\"task.checked\"\n            data-target=\"#userModal\">search</button>\n        </div>\n      </div>\n\n      <!-- The user Modal -->\n      <div class=\"modal\" id=\"userModal\">\n        <div class=\"modal-dialog\">\n          <div class=\"modal-content\">\n            <div class=\"modal-header\">\n              <h4 class=\"modal-title\">Select User</h4>\n              <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n            </div>\n            <div class=\"modal-body\">\n              <input type=\"search\" class=\"form-control\" placeholder=\"Search\" name=\"search\" [(ngModel)]=\"searchUser\" />\n              <ul>\n                <li *ngFor=\"let user of users |filter : searchUser: 'First_Name'\" (click)=\"selectUser(user)\">\n                  {{user.First_Name}} {{user.Last_Name}}\n                </li>\n              </ul>\n            </div>\n            <div class=\"modal-footer\">\n              <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button>\n            </div>\n\n          </div>\n        </div>\n      </div>\n\n      <div class=\"col-sm-9 float-right\" [hidden]=\"updateData.edit\">\n        <button type=\"button\" class=\"btn btn-secondary  mr-2\" (click)=\"addTask(task)\" [disabled]=\"!addtask.form.valid\">Add Task </button>\n        <button type=\"reset\" class=\"btn btn-secondary\" id=\"reset\">Reset</button>\n      </div>\n      <div class=\"col-sm-9 float-right\" [hidden]=\"!updateData.edit\">\n        <button type=\"button\" class=\"btn btn-secondary  mr-2\" (click)=\"updateTask(task)\" [disabled]=\"!addtask.form.valid\">Update </button>\n        <button type=\"button\" class=\"btn btn-secondary\" (click)=\"Cancel()\">Cancel</button>\n      </div>\n\n    </form>\n  </div>\n\n</div>"
 
 /***/ }),
 
@@ -3764,7 +3812,6 @@ var AddTaskComponent = /** @class */ (function () {
             this.BackendApiService.addTask(this.request)
                 .subscribe(//receive the data from service
             function (value) {
-                console.log(value);
                 document.getElementById('alert').innerHTML = 'Added Task Successfully!';
                 document.getElementById('alert').classList.remove('d-none');
                 _this.reset();
@@ -3843,9 +3890,9 @@ var AddTaskComponent = /** @class */ (function () {
     }
     AddTaskComponent.prototype.ngOnInit = function () {
         this.currentDate = this.getcurrentDate().requestDt;
+        this.defaultEndDt = this.getcurrentDate().defaultEndDt;
         this.updateData = this.BackendApiService.getData();
         if (this.updateData === undefined) {
-            console.log(this.updateData);
             this.updateData = {
                 '_id': '',
                 'edit': false,
@@ -3856,8 +3903,12 @@ var AddTaskComponent = /** @class */ (function () {
                 'Priority': '',
                 'Parent_ID': ''
             };
-            console.log(this.updateData);
         }
+        this.task = {
+            'Priority': 0,
+            'startDate': this.currentDate,
+            'endDate': this.defaultEndDt
+        };
         this.getParentTasksList();
         this.getUersList();
         this.getProjectsList();
@@ -3871,7 +3922,12 @@ var AddTaskComponent = /** @class */ (function () {
         }
     };
     AddTaskComponent.prototype.reset = function () {
-        this.task = {};
+        document.getElementById('reset').click();
+        this.task = {
+            'Priority': 0,
+            'startDate': this.currentDate,
+            'endDate': this.defaultEndDt
+        };
     };
     AddTaskComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -3895,7 +3951,7 @@ var AddTaskComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvYWRkLXVzZXIvYWRkLXVzZXIuY29tcG9uZW50LmNzcyJ9 */"
+module.exports = ".filter-row{\r\n    border: 1px dotted #007bff;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9hZGQtdXNlci9hZGQtdXNlci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksMEJBQTBCO0FBQzlCIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9hZGQtdXNlci9hZGQtdXNlci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmZpbHRlci1yb3d7XHJcbiAgICBib3JkZXI6IDFweCBkb3R0ZWQgIzAwN2JmZjtcclxufSJdfQ== */"
 
 /***/ }),
 
@@ -3906,7 +3962,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"shadow-none mb-5  rounded\">\n\n  <div class=\"alert alert-success d-none\" role=\"alert\" id=\"alert\"> </div>\n  <div>\n      <form class=\"col-sm-8 mt-5\">\n          <div class=\"form-group row\">\n              <label for=\"first\" class=\"col-sm-3 col-form-label\">First Name:</label>\n              <div class=\"col-sm-8\">\n                  <input type=\"text\" name=\"first\" [(ngModel)]=\"user.firstName\" class=\"form-control\" id=\"first\" required>\n              </div>\n          </div>\n          <div class=\"form-group row\">\n              <label for=\"last\" class=\"col-sm-3 col-form-label\">Last Name:</label>\n              <div class=\"col-sm-8\">\n                  <input type=\"text\" name=\"last\" [(ngModel)]=\"user.lastName\" class=\"form-control\" id=\"last\" required>\n              </div>\n          </div>\n          <div class=\"form-group row\">\n              <label for=\"employeeId\" class=\"col-sm-3 col-form-label\">Employee ID:</label>\n              <div class=\"col-sm-8\">\n                  <input type=\"text\" name=\"employeeId\" [(ngModel)]=\"user.employeeID\" class=\"form-control\" id=\"employeeId\" required>\n              </div>\n          </div>\n\n          <div class=\"col-sm-9 text-center\" [hidden]=\"user.edit\">\n              <button type=\"button\" class=\"btn btn-secondary  mr-2\"  (click)=\"addUser()\">Add </button>\n              <button type=\"button\" class=\"btn btn-secondary\" (click)=\"reset()\">Reset</button>\n          </div>\n\n          <div class=\"col-sm-9 text-center\" [hidden]=\"!user.edit\">\n              <button type=\"button\" class=\"btn btn-secondary  mr-2\" (click)=\"updateUser(user)\">Update </button>\n              <button type=\"button\" class=\"btn btn-secondary\" (click)=\"reset()\">Cancel</button>\n          </div>\n      </form>\n  </div>\n  <hr size=\"30\" style=\"clear:both;\">\n\n  <div class=\"view-users col-sm-12\">\n      <div>\n          <input class=\"\" type=\"search\" name=\"search\" [(ngModel)]=\"search\" (blur)=\"filterUsers(search)\" placeholder=\"search..\" />\n          Sort: <button type=\"button\" class=\"btn btn-secondary  mr-2\" (click)=\"filterUsers(search)\">First Name\n          </button>\n          <button type=\"button\" class=\"btn btn-secondary  mr-2\" (click)=\"filterUsers(search)\">Last Name </button>\n          <button type=\"button\" class=\"btn btn-secondary  mr-2\" (click)=\"filterUsers(search)\">ID </button>\n      </div>\n      <ul class=\"col-sm-12 list-group\">\n          <li *ngFor=\"let user of users\" class=\" list-group-item\">\n              <div class=\"row\">\n                  <div class=\"col-sm-6\">\n                      <input type=\"text\" readonly class=\"\" [value]=\"user.First_Name\">\n                      <input type=\"text\" readonly class=\"\" value=\"{{user.Last_Name}}\">\n                      <input type=\"text\" readonly class=\"\" value=\"{{user.Employee_ID}}\">\n                  </div>\n                  <div class=\"col-sm-4\">\n                      <button type=\"button\" class=\"btn btn-secondary  mr-2\" (click)=\"EditUser(user)\">Edit </button>\n                      <button type=\"button\" class=\"btn btn-secondary\" (click)=\"deleteUser(user._id)\">Delete</button>\n                  </div>\n              </div>\n\n          </li>\n      </ul>\n  </div>\n\n\n</div>\n"
+module.exports = "<div class=\"shadow-none mb-5 w-50 rounded\">\n\n    <div class=\"alert alert-success d-none\" role=\"alert\" id=\"alert\"> </div>\n    <div>\n        <form #addUser=\"ngForm\" class=\"col-sm-12 mt-5\">\n            <div class=\"form-group row\">\n                <label for=\"first\" class=\"col-sm-3 col-form-label\">*First Name:</label>\n                <div class=\"col-sm-8\">\n                    <input type=\"text\" name=\"first\" [(ngModel)]=\"user.firstName\" class=\"form-control\" id=\"first\"\n                        required #first=\"ngModel\">\n                    <div [hidden]=\"first.valid || first.pristine\" class=\"alert alert-danger\">\n                       First Name is required\n                    </div>\n                </div>\n            </div>\n            <div class=\"form-group row\">\n                <label for=\"last\" class=\"col-sm-3 col-form-label\">*Last Name:</label>\n                <div class=\"col-sm-8\">\n                    <input type=\"text\" name=\"last\" [(ngModel)]=\"user.lastName\" class=\"form-control\" id=\"last\" required #last=\"ngModel\">\n                    <div [hidden]=\"last.valid || last.pristine\" class=\"alert alert-danger\">\n                        Last Name is required\n                    </div>\n                </div>\n            </div>\n            <div class=\"form-group row\">\n                <label for=\"employeeId\" class=\"col-sm-3 col-form-label\">*Employee ID:</label>\n                <div class=\"col-sm-8\">\n                    <input type=\"text\" name=\"employeeId\" [(ngModel)]=\"user.employeeID\" class=\"form-control\"\n                        id=\"employeeId\" required #employeeId=\"ngModel\">\n                        <div [hidden]=\"employeeId.valid || employeeId.pristine\" class=\"alert alert-danger\">\n                            Employee Id is required\n                        </div>\n                </div>\n            </div>\n\n            <div class=\"col-sm-9 text-center\" [hidden]=\"user.edit\">\n                <button type=\"button\" class=\"btn btn-secondary  mr-2\" (click)=\"registerUser()\"\n                    [disabled]=\"!addUser.form.valid\">Add </button>\n                    <input type=\"reset\" class=\"btn btn-secondary\" value=\"Reset\" id=\"reset\">\n                <!-- <button type=\"button\" class=\"btn btn-secondary\" (click)=\"reset()\">Reset</button> -->\n            </div>\n\n            <div class=\"col-sm-9 text-center\" [hidden]=\"!user.edit\">\n                <button type=\"button\" class=\"btn btn-secondary  mr-2\" (click)=\"updateUser(user)\" [disabled]=\"!addUser.form.valid\">Update </button>\n                <button type=\"button\" class=\"btn btn-secondary\" (click)=\"cancel()\">Cancel</button>\n            </div>\n        </form>\n    </div>\n    <hr size=\"30\" class=\"border border-primary\">\n\n    <div class=\"view-users col-sm-12\">\n        <div class=\"row pb-3 mb-2\">\n            <input class=\"col-sm-5 mr-5 form-control\" type=\"search\" name=\"search\" [(ngModel)]=\"search\" placeholder=\"search..\" />\n            <span class=\"mt-2 mr-3\"> Sort:</span> <button type=\"button\" class=\"btn btn-secondary  mr-2\" (click)=\"filterUsers('First_Name')\">First Name\n            </button>\n            <button type=\"button\" class=\"btn btn-secondary  mr-2\" (click)=\"filterUsers('Last_Name')\">Last Name </button>\n            <button type=\"button\" class=\"btn btn-secondary\" (click)=\"filterUsers('Employee_ID')\">ID </button>\n        </div>\n        <ul class=\"col-sm-12 list-group\">\n            <li *ngFor=\"let user of users |filter : search: 'First_Name'\" class=\" list-group-item\">\n                <div class=\"row\">\n                    <div class=\"col-sm-9\">\n                        <input type=\"text\" readonly class=\"form-control mb-2\" [value]=\"user.First_Name\">\n                        <input type=\"text\" readonly class=\"form-control mb-2\" value=\"{{user.Last_Name}}\">\n                        <input type=\"text\" readonly class=\"form-control\" value=\"{{user.Employee_ID}}\">\n                    </div>\n                    <div class=\"col-sm-3\">\n                        <button type=\"button\" class=\"btn btn-secondary col-sm-10 mb-2\" (click)=\"EditUser(user)\">Edit </button>\n                        <button type=\"button\" class=\"btn btn-secondary col-sm-10 mb-2\" (click)=\"deleteUser(user._id)\">Delete</button>\n                    </div>\n                </div>\n\n            </li>\n        </ul>\n    </div>\n\n\n</div>"
 
 /***/ }),
 
@@ -3923,22 +3979,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_backend_api_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/backend-api.service */ "./src/app/services/backend-api.service.ts");
-/* harmony import */ var ngx_filter_pipe__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-filter-pipe */ "./node_modules/ngx-filter-pipe/esm5/ngx-filter-pipe.js");
+/* harmony import */ var ngx_order_pipe__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-order-pipe */ "./node_modules/ngx-order-pipe/ngx-order-pipe.es5.js");
 
 
 
 
 var AddUserComponent = /** @class */ (function () {
-    function AddUserComponent(BackendApiService, filter) {
+    function AddUserComponent(BackendApiService, orderPipe) {
         this.BackendApiService = BackendApiService;
-        this.filter = filter;
+        this.orderPipe = orderPipe;
         this.user = {
             firstName: '',
             lastName: '',
             employeeID: ''
         };
         this.reset = function () {
+            document.getElementById('reset').click();
+        };
+        this.cancel = function () {
             this.user = {};
+            this.user.edit = false;
         };
         this.getUersList = function () {
             var _this = this;
@@ -3947,8 +4007,11 @@ var AddUserComponent = /** @class */ (function () {
                 _this.usersCopy = users;
             });
         };
-        this.filterUsers = function (search) {
-            // this.users = $filter('filter')(this.usersCopy, search);
+        this.filterUsers = function (searchby) {
+            console.log(this.orderPipe.transform(this.usersCopy, searchby));
+            if (searchby) {
+                this.users = this.orderPipe.transform(this.usersCopy, searchby);
+            }
         };
         this.EditUser = function (user) {
             this.user = {
@@ -3965,7 +4028,7 @@ var AddUserComponent = /** @class */ (function () {
                 document.getElementById('alert').innerHTML = 'Updated User Successfully!';
                 document.getElementById('alert').classList.remove('d-none');
                 _this.getUersList();
-                _this.reset();
+                _this.cancel();
             });
             setTimeout(function () {
                 document.getElementById('alert').classList.add('d-none');
@@ -3986,7 +4049,7 @@ var AddUserComponent = /** @class */ (function () {
     AddUserComponent.prototype.ngOnInit = function () {
         this.getUersList();
     };
-    AddUserComponent.prototype.addUser = function () {
+    AddUserComponent.prototype.registerUser = function () {
         var _this = this;
         this.request = {
             'First_Name': this.user.firstName,
@@ -3996,7 +4059,6 @@ var AddUserComponent = /** @class */ (function () {
         this.BackendApiService.addUser(this.request)
             .subscribe(//receive the data from service
         function (value) {
-            console.log(value);
             document.getElementById('alert').innerHTML = 'Added User Successfully!';
             document.getElementById('alert').classList.remove('d-none');
             _this.reset();
@@ -4015,7 +4077,7 @@ var AddUserComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./add-user.component.html */ "./src/app/components/add-user/add-user.component.html"),
             styles: [__webpack_require__(/*! ./add-user.component.css */ "./src/app/components/add-user/add-user.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_backend_api_service__WEBPACK_IMPORTED_MODULE_2__["BackendApiService"], ngx_filter_pipe__WEBPACK_IMPORTED_MODULE_3__["FilterPipeModule"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_backend_api_service__WEBPACK_IMPORTED_MODULE_2__["BackendApiService"], ngx_order_pipe__WEBPACK_IMPORTED_MODULE_3__["OrderPipe"]])
     ], AddUserComponent);
     return AddUserComponent;
 }());
@@ -4031,7 +4093,7 @@ var AddUserComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvaGVhZGVyL2hlYWRlci5jb21wb25lbnQuY3NzIn0= */"
+module.exports = ".navbar{\r\n    margin-left: 10%;\r\n\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9oZWFkZXIvaGVhZGVyLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxnQkFBZ0I7O0FBRXBCIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9oZWFkZXIvaGVhZGVyLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubmF2YmFye1xyXG4gICAgbWFyZ2luLWxlZnQ6IDEwJTtcclxuXHJcbn0iXX0= */"
 
 /***/ }),
 
@@ -4105,7 +4167,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"shadow-none mb-5 bg-light rounded\">\n  <div class=\"col-sm-11 mt-5 mb-5\">\n    <div class=\"form-group row\">\n      <label for=\"project\" class=\"col-sm-1 col-form-label\">Project:</label>\n      <div class=\"col-sm-6\">\n        <input class=\"form-control col-sm-9 float-left mr-3\" type=\"text\" name=\"project\" [(ngModel)]=\"Project\"\n          id=\"project\">\n        <button type=\"button\" class=\"btn btn-secondary pl-1 col-sm-2\" data-toggle=\"modal\"\n          data-target=\"#projectModal\">search</button>\n      </div>\n      Sort Task By : <button type=\"button\" class=\"btn btn-secondary float-left mr-2\" (click)=\"EndTask(task)\">Start\n        Date</button>\n      <button type=\"button\" class=\"btn btn-secondary float-left mr-2\" (click)=\"EndTask(task)\">End Date</button>\n      <button type=\"button\" class=\"btn btn-secondary float-left mr-2\" (click)=\"EndTask(task)\">Priority</button>\n      <button type=\"button\" class=\"btn btn-secondary\" (click)=\"EndTask(task)\">Completed</button>\n    </div>\n  </div>\n\n  <!-- The Modal -->\n  <div class=\"modal\" id=\"projectModal\">\n    <div class=\"modal-dialog\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h4 class=\"modal-title\">Select Project</h4>\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n        </div>\n        <div class=\"modal-body\">\n          <input type=\"search\" placeholder=\"Search\" name=\"search\" [(ngModel)]=\"searchProject\" />\n          <ul>\n            <li *ngFor=\"let proj of projects\" (click)=\"selectProject(proj)\">\n              {{proj.Project}}\n            </li>\n          </ul>\n\n        </div>\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button>\n        </div>\n\n      </div>\n    </div>\n  </div>\n\n  <hr style=\"border-top: dotted 1px;\" />\n  <div>\n    <ul>\n      <li class=\"row pb-3 task-item\" *ngFor=\"let task of tasks\">\n        <div class=\"col-sm-3\">\n          <label for=\"task\" class=\" col-form-label\">Task</label>\n          <input type=\"text\" readonly class=\"form-control\" id=\"task\" value=\"{{task.Task}}\">\n        </div>\n        <div class=\"col-sm-3\">\n          <label for=\"task\" class=\" col-form-label\">Parent Task</label>\n          <input type=\"text\" readonly class=\"form-control\" id=\"taskParent\"\n            value=\"{{task.Parent_ID?  getParentByFilter(task.Parent_ID): 'No Parent'}}\">\n        </div>\n        <div class=\"col-sm-1\">\n          <label for=\"task\" class=\" col-form-label\">Priority</label>\n          <input type=\"text\" readonly class=\"form-control-plaintext\" id=\"taskPriority\" value=\"{{task.Priority}}\">\n        </div>\n        <div class=\"col-sm-1\">\n          <label for=\"task\" class=\" col-form-label\">Start</label>\n          <input type=\"text\" readonly class=\"form-control-plaintext\" id=\"startDate\" value=\"{{task.Start_Date}}\">\n        </div>\n        <div class=\"col-sm-1\">\n          <label for=\"task\" class=\" col-form-label\">End</label>\n          <input type=\"text\" readonly class=\"form-control-plaintext\" id=\"endDate\" value=\"{{task.End_Date}}\">\n        </div>\n        <div class=\"mt-5\">\n          <button type=\"button\" class=\"btn btn-secondary  mr-2\" [disabled]=\"task.Status\" (click)=\"EditTask(task)\">Edit\n          </button>\n          <button type=\"button\" class=\"btn btn-secondary\" (click)=\"EndTask(task._id)\" [disabled]=\"task.Status\">End Task</button>\n        </div>\n      </li>\n    </ul>\n\n  </div>\n\n</div>"
+module.exports = "<div class=\"shadow-none mb-5 rounded\">\n  <div class=\"col-sm-11 mt-5 mb-5\">\n    <div class=\"form-group row\">\n      <label for=\"project\" class=\"col-sm-1 col-form-label\">Project:</label>\n      <div class=\"col-sm-6\">\n        <input class=\"form-control col-sm-9 float-left mr-3\" type=\"text\" name=\"project\" [(ngModel)]=\"Project\"\n          id=\"project\">\n        <button type=\"button\" class=\"btn btn-secondary pl-1 col-sm-2\" data-toggle=\"modal\"\n          data-target=\"#projectModal\">search</button>\n      </div>\n      <span class=\"mt-3 mr-2\">Sort Task By :</span> <button type=\"button\" class=\"btn btn-secondary float-left mr-2\" (click)=\"filterUsers('Start_Date')\">Start\n        Date</button>\n      <button type=\"button\" class=\"btn btn-secondary float-left mr-2\" (click)=\"filterUsers('End_Date')\">End Date</button>\n      <button type=\"button\" class=\"btn btn-secondary float-left mr-2\" (click)=\"filterUsers('Priority')\">Priority</button>\n      <button type=\"button\" class=\"btn btn-secondary\" (click)=\"filterUsers('Status')\">Completed</button>\n    </div>\n  </div>\n\n  <!-- The Modal -->\n  <div class=\"modal\" id=\"projectModal\">\n    <div class=\"modal-dialog\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h4 class=\"modal-title\">Select Project</h4>\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n        </div>\n        <div class=\"modal-body\">\n          <input type=\"search\" class=\"form-control\" placeholder=\"Search\" name=\"search\" [(ngModel)]=\"searchProject\" />\n          <ul>\n            <li *ngFor=\"let proj of projects |filter : searchProject: 'Project'\" (click)=\"selectProject(proj)\">\n              {{proj.Project}}\n            </li>\n          </ul>\n\n        </div>\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button>\n        </div>\n\n      </div>\n    </div>\n  </div>\n\n  <hr style=\"border-top: dotted 1px;\" />\n  <div>\n    <ul>\n      <li class=\"row pb-3 task-item\" *ngFor=\"let task of tasks\">\n        <div class=\"col-sm-3\">\n          <label for=\"task\" class=\" col-form-label\">Task</label>\n          <input type=\"text\" readonly class=\"form-control\" id=\"task\" value=\"{{task.Task}}\">\n        </div>\n        <div class=\"col-sm-3\">\n          <label for=\"task\" class=\" col-form-label\">Parent Task</label>\n          <input type=\"text\" readonly class=\"form-control\" id=\"taskParent\"\n            value=\"{{task.Parent_ID?  getParentByFilter(task.Parent_ID): 'No Parent'}}\">\n        </div>\n        <div class=\"col-sm-1\">\n          <label for=\"task\" class=\" col-form-label\">Priority</label>\n          <input type=\"text\" readonly class=\"form-control-plaintext\" id=\"taskPriority\" value=\"{{task.Priority}}\">\n        </div>\n        <div class=\"col-sm-1\">\n          <label for=\"task\" class=\" col-form-label\">Start</label>\n          <input type=\"text\" readonly class=\"form-control-plaintext\" id=\"startDate\" value=\"{{task.Start_Date}}\">\n        </div>\n        <div class=\"col-sm-1\">\n          <label for=\"task\" class=\" col-form-label\">End</label>\n          <input type=\"text\" readonly class=\"form-control-plaintext\" id=\"endDate\" value=\"{{task.End_Date}}\">\n        </div>\n        <div class=\"mt-5\">\n          <button type=\"button\" class=\"btn btn-secondary  mr-2\" [disabled]=\"task.Status\" (click)=\"EditTask(task)\">Edit\n          </button>\n          <button type=\"button\" class=\"btn btn-secondary\" (click)=\"EndTask(task._id)\" [disabled]=\"task.Status\">End Task</button>\n        </div>\n      </li>\n    </ul>\n\n  </div>\n\n</div>"
 
 /***/ }),
 
@@ -4123,14 +4185,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_backend_api_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/backend-api.service */ "./src/app/services/backend-api.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var ngx_order_pipe__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-order-pipe */ "./node_modules/ngx-order-pipe/ngx-order-pipe.es5.js");
+
 
 
 
 
 var ViewTaskComponent = /** @class */ (function () {
-    function ViewTaskComponent(BackendApiService, router) {
+    function ViewTaskComponent(BackendApiService, router, orderPipe) {
         this.BackendApiService = BackendApiService;
         this.router = router;
+        this.orderPipe = orderPipe;
         this.task = {};
         this.getProjectsList = function () {
             var _this = this;
@@ -4154,6 +4219,7 @@ var ViewTaskComponent = /** @class */ (function () {
             var _this = this;
             this.BackendApiService.getTasksList(id).subscribe(function (res) {
                 _this.tasks = res;
+                _this.tasksCopy = res;
             });
         };
         this.selectProject = function (proj) {
@@ -4175,6 +4241,11 @@ var ViewTaskComponent = /** @class */ (function () {
             this.BackendApiService.setData(task);
             this.router.navigate(['addtask']);
         };
+        this.filterUsers = function (searchby) {
+            if (searchby) {
+                this.tasks = this.orderPipe.transform(this.tasksCopy, searchby);
+            }
+        };
     }
     ViewTaskComponent.prototype.ngOnInit = function () {
         this.getProjectsList();
@@ -4186,9 +4257,49 @@ var ViewTaskComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./view-task.component.html */ "./src/app/components/view-task/view-task.component.html"),
             styles: [__webpack_require__(/*! ./view-task.component.css */ "./src/app/components/view-task/view-task.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_backend_api_service__WEBPACK_IMPORTED_MODULE_2__["BackendApiService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_backend_api_service__WEBPACK_IMPORTED_MODULE_2__["BackendApiService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], ngx_order_pipe__WEBPACK_IMPORTED_MODULE_4__["OrderPipe"]])
     ], ViewTaskComponent);
     return ViewTaskComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/pipes/filter.pipe.ts":
+/*!**************************************!*\
+  !*** ./src/app/pipes/filter.pipe.ts ***!
+  \**************************************/
+/*! exports provided: FilterPipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FilterPipe", function() { return FilterPipe; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var FilterPipe = /** @class */ (function () {
+    function FilterPipe() {
+    }
+    FilterPipe.prototype.transform = function (items, searchText, args) {
+        var property = args;
+        if (!items)
+            return [];
+        if (!searchText)
+            return items;
+        searchText = searchText.toLowerCase();
+        return items.filter(function (it) {
+            return it[property].toLowerCase().includes(searchText);
+        });
+    };
+    FilterPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
+            name: 'filter'
+        })
+    ], FilterPipe);
+    return FilterPipe;
 }());
 
 

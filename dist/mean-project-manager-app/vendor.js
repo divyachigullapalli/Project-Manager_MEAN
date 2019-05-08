@@ -76238,212 +76238,251 @@ var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["Version"]('7.2.14'
 
 /***/ }),
 
-/***/ "./node_modules/ngx-filter-pipe/esm5/ngx-filter-pipe.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/ngx-filter-pipe/esm5/ngx-filter-pipe.js ***!
-  \**************************************************************/
-/*! exports provided: FilterPipeModule, FilterPipe */
+/***/ "./node_modules/ngx-order-pipe/ngx-order-pipe.es5.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/ngx-order-pipe/ngx-order-pipe.es5.js ***!
+  \***********************************************************/
+/*! exports provided: OrderPipe, OrderModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FilterPipeModule", function() { return FilterPipeModule; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FilterPipe", function() { return FilterPipe; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OrderPipe", function() { return OrderPipe; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OrderModule", function() { return OrderModule; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-var FilterPipe = /** @class */ (function () {
-    function FilterPipe() {
+var OrderPipe = /** @class */ (function () {
+    function OrderPipe() {
     }
     /**
-     * @param {?} value
-     * @param {?} key
-     * @return {?}
-     */
-    FilterPipe.isFoundOnWalking = function (value, key) {
-        var /** @type {?} */ walker = value;
-        var /** @type {?} */ found = false;
-        do {
-            if (walker.hasOwnProperty(key) || Object.getOwnPropertyDescriptor(walker, key)) {
-                found = true;
-                break;
-            }
-        } while (walker = Object.getPrototypeOf(walker));
-        return found;
-    };
-    /**
+     * Check if a value is a string
+     *
      * @param {?} value
      * @return {?}
      */
-    FilterPipe.isNumber = function (value) {
-        return !isNaN(parseInt(value, 10)) && isFinite(value);
+    OrderPipe.isString = function (value) {
+        return typeof value === 'string' || value instanceof String;
     };
     /**
-     * Checks function's value if type is function otherwise same value
-     * @param {?} value
+     * Sorts values ignoring the case
+     *
+     * @param {?} a
+     * @param {?} b
      * @return {?}
      */
-    FilterPipe.getValue = function (value) {
-        return typeof value === 'function' ? value() : value;
-    };
-    /**
-     * @param {?} filter
-     * @return {?}
-     */
-    FilterPipe.prototype.filterByString = function (filter) {
-        if (filter) {
-            filter = filter.toLowerCase();
+    OrderPipe.caseInsensitiveSort = function (a, b) {
+        if (OrderPipe.isString(a) && OrderPipe.isString(b)) {
+            return a.localeCompare(b);
         }
-        return function (value) { return !filter || (value ? ('' + value).toLowerCase().indexOf(filter) !== -1 : false); };
+        return OrderPipe.defaultCompare(a, b);
     };
     /**
-     * @param {?} filter
+     * Default compare method
+     *
+     * @param {?} a
+     * @param {?} b
      * @return {?}
      */
-    FilterPipe.prototype.filterByBoolean = function (filter) {
-        return function (value) { return Boolean(value) === filter; };
+    OrderPipe.defaultCompare = function (a, b) {
+        if (a === b) {
+            return 0;
+        }
+        if (a == null) {
+            return 1;
+        }
+        if (b == null) {
+            return -1;
+        }
+        return a > b ? 1 : -1;
     };
     /**
-     * @param {?} filter
+     * Parse expression, split into items
+     * @param {?} expression
      * @return {?}
      */
-    FilterPipe.prototype.filterByObject = function (filter) {
+    OrderPipe.parseExpression = function (expression) {
+        expression = expression.replace(/\[(\w+)\]/g, '.$1');
+        expression = expression.replace(/^\./, '');
+        return expression.split('.');
+    };
+    /**
+     * Get value by expression
+     *
+     * @param {?} object
+     * @param {?} expression
+     * @return {?}
+     */
+    OrderPipe.getValue = function (object, expression) {
+        for (var /** @type {?} */ i = 0, /** @type {?} */ n = expression.length; i < n; ++i) {
+            var /** @type {?} */ k = expression[i];
+            if (!(k in object)) {
+                return;
+            }
+            if (typeof object[k] === 'function') {
+                object = object[k]();
+            }
+            else {
+                object = object[k];
+            }
+        }
+        return object;
+    };
+    /**
+     * Set value by expression
+     *
+     * @param {?} object
+     * @param {?} value
+     * @param {?} expression
+     * @return {?}
+     */
+    OrderPipe.setValue = function (object, value, expression) {
+        var /** @type {?} */ i;
+        for (i = 0; i < expression.length - 1; i++) {
+            object = object[expression[i]];
+        }
+        object[expression[i]] = value;
+    };
+    /**
+     * @param {?} value
+     * @param {?=} expression
+     * @param {?=} reverse
+     * @param {?=} isCaseInsensitive
+     * @param {?=} comparator
+     * @return {?}
+     */
+    OrderPipe.prototype.transform = function (value, expression, reverse, isCaseInsensitive, comparator) {
+        if (isCaseInsensitive === void 0) { isCaseInsensitive = false; }
+        if (!value) {
+            return value;
+        }
+        if (Array.isArray(expression)) {
+            return this.multiExpressionTransform(value, expression, reverse, isCaseInsensitive, comparator);
+        }
+        if (Array.isArray(value)) {
+            return this.sortArray(value.slice(), expression, reverse, isCaseInsensitive, comparator);
+        }
+        if (typeof value === 'object') {
+            return this.transformObject(Object.assign({}, value), expression, reverse, isCaseInsensitive, comparator);
+        }
+        return value;
+    };
+    /**
+     * Sort array
+     *
+     * @param {?} value
+     * @param {?=} expression
+     * @param {?=} reverse
+     * @param {?=} isCaseInsensitive
+     * @param {?=} comparator
+     * @return {?}
+     */
+    OrderPipe.prototype.sortArray = function (value, expression, reverse, isCaseInsensitive, comparator) {
+        var /** @type {?} */ isDeepLink = expression && expression.indexOf('.') !== -1;
+        if (isDeepLink) {
+            expression = OrderPipe.parseExpression(expression);
+        }
+        var /** @type {?} */ compareFn;
+        if (comparator && typeof comparator === 'function') {
+            compareFn = comparator;
+        }
+        else {
+            compareFn = isCaseInsensitive ? OrderPipe.caseInsensitiveSort : OrderPipe.defaultCompare;
+        }
+        var /** @type {?} */ array = value.sort(function (a, b) {
+            if (!expression) {
+                return compareFn(a, b);
+            }
+            if (!isDeepLink) {
+                if (a && b) {
+                    return compareFn(a[expression], b[expression]);
+                }
+                return compareFn(a, b);
+            }
+            return compareFn(OrderPipe.getValue(a, expression), OrderPipe.getValue(b, expression));
+        });
+        if (reverse) {
+            return array.reverse();
+        }
+        return array;
+    };
+    /**
+     * Transform Object
+     *
+     * @param {?} value
+     * @param {?=} expression
+     * @param {?=} reverse
+     * @param {?=} isCaseInsensitive
+     * @param {?=} comparator
+     * @return {?}
+     */
+    OrderPipe.prototype.transformObject = function (value, expression, reverse, isCaseInsensitive, comparator) {
+        var /** @type {?} */ parsedExpression = OrderPipe.parseExpression(expression);
+        var /** @type {?} */ lastPredicate = parsedExpression.pop();
+        var /** @type {?} */ oldValue = OrderPipe.getValue(value, parsedExpression);
+        if (!Array.isArray(oldValue)) {
+            parsedExpression.push(lastPredicate);
+            lastPredicate = null;
+            oldValue = OrderPipe.getValue(value, parsedExpression);
+        }
+        if (!oldValue) {
+            return value;
+        }
+        OrderPipe.setValue(value, this.transform(oldValue, lastPredicate, reverse, isCaseInsensitive), parsedExpression);
+        return value;
+    };
+    /**
+     * Apply multiple expressions
+     *
+     * @param {?} value
+     * @param {?} expressions
+     * @param {?} reverse
+     * @param {?=} isCaseInsensitive
+     * @param {?=} comparator
+     * @return {?}
+     */
+    OrderPipe.prototype.multiExpressionTransform = function (value, expressions, reverse, isCaseInsensitive, comparator) {
         var _this = this;
-        return function (value) {
-            for (var /** @type {?} */ key in filter) {
-                if (key === '$or') {
-                    if (!_this.filterByOr(filter.$or)(FilterPipe.getValue(value))) {
-                        return false;
-                    }
-                    continue;
-                }
-                if (!value || !FilterPipe.isFoundOnWalking(value, key)) {
-                    return false;
-                }
-                if (!_this.isMatching(filter[key], FilterPipe.getValue(value[key]))) {
-                    return false;
-                }
-            }
-            return true;
-        };
+        if (isCaseInsensitive === void 0) { isCaseInsensitive = false; }
+        return expressions.reverse().reduce(function (result, expression) {
+            return _this.transform(result, expression, reverse, isCaseInsensitive, comparator);
+        }, value);
     };
-    /**
-     * @param {?} filter
-     * @param {?} val
-     * @return {?}
-     */
-    FilterPipe.prototype.isMatching = function (filter, val) {
-        switch (typeof filter) {
-            case 'boolean':
-                return this.filterByBoolean(filter)(val);
-            case 'string':
-                return this.filterByString(filter)(val);
-            case 'object':
-                return this.filterByObject(filter)(val);
-        }
-        return this.filterDefault(filter)(val);
-    };
-    /**
-     * Filter value by $or
-     * @param {?} filter
-     * @return {?}
-     */
-    FilterPipe.prototype.filterByOr = function (filter) {
-        var _this = this;
-        return function (value) {
-            var /** @type {?} */ length = filter.length;
-            var /** @type {?} */ arrayComparison = function (i) { return value.indexOf(filter[i]) !== -1; };
-            var /** @type {?} */ otherComparison = function (i) { return _this.isMatching(filter[i], value); };
-            var /** @type {?} */ comparison = Array.isArray(value) ? arrayComparison : otherComparison;
-            for (var /** @type {?} */ i = 0; i < length; i++) {
-                if (comparison(i)) {
-                    return true;
-                }
-            }
-            return false;
-        };
-    };
-    /**
-     * Default filterDefault function
-     * @param {?} filter
-     * @return {?}
-     */
-    FilterPipe.prototype.filterDefault = function (filter) {
-        return function (value) { return filter === undefined || filter == value; };
-    };
-    /**
-     * @param {?} array
-     * @param {?} filter
-     * @return {?}
-     */
-    FilterPipe.prototype.transform = function (array, filter) {
-        if (!array) {
-            return array;
-        }
-        switch (typeof filter) {
-            case 'boolean':
-                return array.filter(this.filterByBoolean(filter));
-            case 'string':
-                if (FilterPipe.isNumber(filter)) {
-                    return array.filter(this.filterDefault(filter));
-                }
-                return array.filter(this.filterByString(filter));
-            case 'object':
-                return array.filter(this.filterByObject(filter));
-            case 'function':
-                return array.filter(filter);
-        }
-        return array.filter(this.filterDefault(filter));
-    };
-    return FilterPipe;
+    return OrderPipe;
 }());
-FilterPipe.decorators = [
+OrderPipe.decorators = [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Pipe"], args: [{
-                name: 'filterBy',
+                name: 'orderBy',
                 pure: false
             },] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] },
 ];
-/** @nocollapse */
-FilterPipe.ctorParameters = function () { return []; };
 /**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
+ * @nocollapse
  */
-var FilterPipeModule = /** @class */ (function () {
-    function FilterPipeModule() {
+OrderPipe.ctorParameters = function () { return []; };
+/**
+ * Created by vadimdez on 20/01/2017.
+ */
+var OrderModule = /** @class */ (function () {
+    function OrderModule() {
     }
-    return FilterPipeModule;
+    return OrderModule;
 }());
-FilterPipeModule.decorators = [
+OrderModule.decorators = [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"], args: [{
-                declarations: [FilterPipe],
-                providers: [FilterPipe],
-                exports: [FilterPipe]
+                declarations: [OrderPipe],
+                exports: [OrderPipe],
+                providers: [OrderPipe]
             },] },
 ];
-/** @nocollapse */
-FilterPipeModule.ctorParameters = function () { return []; };
 /**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
+ * @nocollapse
  */
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
+OrderModule.ctorParameters = function () { return []; };
 /**
  * Generated bundle index. Do not edit.
  */
 
-//# sourceMappingURL=ngx-filter-pipe.js.map
+//# sourceMappingURL=ngx-order-pipe.es5.js.map
 
 
 /***/ }),
