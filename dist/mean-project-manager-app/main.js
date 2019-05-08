@@ -3991,7 +3991,8 @@ var AddUserComponent = /** @class */ (function () {
         this.user = {
             firstName: '',
             lastName: '',
-            employeeID: ''
+            employeeID: '',
+            edit: false
         };
         this.reset = function () {
             document.getElementById('reset').click();
@@ -4008,7 +4009,6 @@ var AddUserComponent = /** @class */ (function () {
             });
         };
         this.filterUsers = function (searchby) {
-            console.log(this.orderPipe.transform(this.usersCopy, searchby));
             if (searchby) {
                 this.users = this.orderPipe.transform(this.usersCopy, searchby);
             }

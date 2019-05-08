@@ -1,23 +1,34 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { HttpModule } from '@angular/http';
-import { Http, Headers, Response } from '@angular/http';
-import { of } from 'rxjs'
+import { Http, Headers, Response, BaseRequestOptions, ResponseOptions } from '@angular/http';
+import { of } from 'rxjs';
 import { BackendApiService } from './backend-api.service';
+import { MockBackend, MockConnection } from '@angular/http/testing';
 
 describe('BackendApiService', () => {
-  beforeEach(() => TestBed.configureTestingModule({
-    imports: [HttpModule]
-  }));
-  let httpSpy: { get: jasmine.Spy };
   let service: BackendApiService;
+  let backend: MockBackend;
+
+  beforeEach(() => TestBed.configureTestingModule({
+    imports: [HttpModule],
+    providers: [
+      BackendApiService,
+      MockBackend,
+      BaseRequestOptions,
+      {
+        provide: Http,
+        useFactory: (backend, options) => new Http(backend, options),
+        deps: [MockBackend, BaseRequestOptions]
+      }
+    ]
+  }));
+
   beforeEach(() => {
-    // TODO: spy on other methods too
-    httpSpy = jasmine.createSpyObj('Http', ['get', 'post','put','delete']);
+    backend = TestBed.get(MockBackend);
     service = TestBed.get(BackendApiService);
   });
 
   it('should be created', () => {
-    // const service: BackendApiService = TestBed.get(BackendApiService);
     expect(service).toBeTruthy();
   });
 
@@ -30,92 +41,239 @@ describe('BackendApiService', () => {
     expect(getData).toEqual(data);
   });
 
-  // it('should getUsersList', () => {
-  //   const expectedUsers = [{ id: 1, First_Name: 'A' }, { id: 2, First_Name: 'B' }];
+  it(' should return getUsersList', fakeAsync(() => {
+    let response = {
+      "resultCount": 1,
+      "results": [
+        {
+          "artistId": 78500,
+          "artistName": "U2",
+          "trackName": "Beautiful Day",
+          "artworkUrl60": "image.jpg",
+        }]
+    };
+    backend.connections.subscribe(connection => {
+      connection.mockRespond(new Response(<ResponseOptions>{
+        body: JSON.stringify(response)
+      }));
+    });
 
-  //   httpSpy.get.and.returnValue(of(expectedUsers));
+    service.getUsersList().subscribe(users => {
+      expect(users).toEqual(response, 'expected')
+    });
+    tick();
+  }));
 
-  //   service.getUsersList().subscribe(users => {
-  //     expect(users).toEqual(expectedUsers, 'expected')
-  //   });
-  //   expect(httpSpy.get.calls.count()).toBe(0);
-  // });
+  it(' should return addUser', fakeAsync(() => {
+    let user = {
+      'First_Name': 'Divya',
+      'Last_Name': 'Chi',
+      'Employee_Id': '602814'
+    };
+    backend.connections.subscribe(connection => {
+      connection.mockRespond(new Response(<ResponseOptions>{
+        body: JSON.stringify({ 'success': true })
+      }));
+    });
 
-  // it('should addUser', () => {
-  //   const user = { id: 1, First_Name: 'A' };
+    service.addUser(user).subscribe(res => {
+      expect(res).toEqual({ 'success': true });
+    });
+    tick();
+  }));
 
-  //   httpSpy.get.and.returnValue(of({ 'success': true }));
+  it(' should return updateUser', fakeAsync(() => {
+    let user = {
+      'First_Name': 'Divya',
+      'Last_Name': 'Chigullapalli',
+      'Employee_Id': '602814'
+    };
+    backend.connections.subscribe(connection => {
+      connection.mockRespond(new Response(<ResponseOptions>{
+        body: JSON.stringify({ 'success': true })
+      }));
+    });
 
-  //   service.addUser(user).subscribe(res => {
-  //     expect(res).toEqual({ 'success': true })
-  //   });
-  //   expect(httpSpy.get.calls.count()).toBe(0);
-  // });
+    service.updateUser(user).subscribe(res => {
+      expect(res).toEqual({ 'success': true });
+    });
+    tick();
+  }));
 
-  // it('should updateUser', () => {
-  //   const user = { id: 1, First_Name: 'A' };
+  it(' should return deleteUser', fakeAsync(() => {
+    let user = {
+      '_id': '602814ssssgfjuss'
+    };
+    backend.connections.subscribe(connection => {
+      connection.mockRespond(new Response(<ResponseOptions>{
+        body: JSON.stringify({ 'success': true })
+      }));
+    });
 
-  //   httpSpy.get.and.returnValue(of({ 'success': true }));
-
-  //   service.updateUser(user).subscribe(res => {
-  //     expect(res).toEqual({ 'success': true })
-  //   });
-  //   expect(httpSpy.get.calls.count()).toBe(0);
-  // });
-
-  // it('should deleteUser', () => {
-  //   const id = 12123;
-
-  //   httpSpy.get.and.returnValue(of({ 'success': true }));
-
-  //   service.deleteUser(id).subscribe(res => {
-  //     expect(res).toEqual({ 'success': true })
-  //   });
-  //   expect(httpSpy.get.calls.count()).toBe(0);
-  // });
+    service.deleteUser(user._id).subscribe(res => {
+      expect(res).toEqual({ 'success': true });
+    });
+    tick();
+  }));
 
 
-  // it('should addProject', () => {
-  //   const proj = {};
 
-  //   httpSpy.get.and.returnValue(of(proj));
+  it(' should return addProject', fakeAsync(() => {
+    let proj = {
+      'Project': 'Project Angular Proj',
+      'Start_Date': '2019-05-8',
+      'End_Date': '2019-05-15',
+      'Priority': 2
+    };
+    backend.connections.subscribe(connection => {
+      connection.mockRespond(new Response(<ResponseOptions>{
+        body: JSON.stringify({ 'success': true })
+      }));
+    });
 
-  //   service.addProject(proj).subscribe(users => {
-  //     expect(users).toEqual(proj)
-  //   });
-  //   expect(httpSpy.get.calls.count()).toBe(0);
-  // });
+    service.addProject(proj).subscribe(res => {
+      expect(res).toEqual({ 'success': true });
+    });
+    tick();
+  }));
 
-  // it('should getProjectsList', () => {
-  //   httpSpy.get.and.returnValue(of({ 'success': true }));
+  it(' should return getProjectsList', fakeAsync(() => {
+    let response = {
+      "resultCount": 1,
+      "results": [
+        {
+          "Project": "Project Angular Proj"
+        }]
+    };
+    backend.connections.subscribe(connection => {
+      connection.mockRespond(new Response(<ResponseOptions>{
+        body: JSON.stringify(response)
+      }));
+    });
 
-  //   service.getProjectsList().subscribe(res => {
-  //     expect(res).toEqual({ 'success': true })
-  //   });
-  //   expect(httpSpy.get.calls.count()).toBe(0);
-  // });
+    service.getProjectsList().subscribe(users => {
+      expect(users).toEqual(response, 'expected')
+    });
+    tick();
+  }));
 
-  // it('should updateProject', () => {
-  //   const proj = {};
+  it(' should return updateProject', fakeAsync(() => {
+    let proj = {
+      'Project': 'Project Name',
+      'Start_Date': '2019-05-8',
+      'End_Date': '2019-05-15',
+      'Priority': 2
+    };
+    backend.connections.subscribe(connection => {
+      connection.mockRespond(new Response(<ResponseOptions>{
+        body: JSON.stringify({ 'success': true })
+      }));
+    });
 
-  //   httpSpy.get.and.returnValue(of({ 'success': true }));
+    service.updateProject(proj).subscribe(res => {
+      expect(res).toEqual({ 'success': true });
+    });
+    tick();
+  }));
 
-  //   service.updateProject(proj).subscribe(res => {
-  //     expect(res).toEqual({ 'success': true })
-  //   });
-  //   expect(httpSpy.get.calls.count()).toBe(0);
-  // });
+  it(' should return deleteProject', fakeAsync(() => {
+    let proj = {
+      '_id': '6028ss14ssssgfjuss'
+    };
+    backend.connections.subscribe(connection => {
+      connection.mockRespond(new Response(<ResponseOptions>{
+        body: JSON.stringify({ 'success': true })
+      }));
+    });
 
-  // it('should deleteProject', () => {
-  //   const id = 12123;
+    service.deleteProject(proj._id).subscribe(res => {
+      expect(res).toEqual({ 'success': true });
+    });
+    tick();
+  }));
 
-  //   httpSpy.get.and.returnValue(of({ 'success': true }));
+  it(' should return addTask', fakeAsync(() => {
+    let task = {
+      'Task': 'Angular Proj',
+      'Start_Date': '2019-05-8',
+      'End_Date': '2019-05-15',
+      'Priority': 2
+    };
+    backend.connections.subscribe(connection => {
+      connection.mockRespond(new Response(<ResponseOptions>{
+        body: JSON.stringify({ 'success': true })
+      }));
+    });
 
-  //   service.deleteProject(id).subscribe(res => {
-  //     expect(res).toEqual({ 'success': true })
-  //   });
-  //   expect(httpSpy.get.calls.count()).toBe(0);
-  // });
+    service.addTask(task).subscribe(res => {
+      expect(res).toEqual({ 'success': true });
+    });
+    tick();
+  }));
 
+  it('should return getTasksList', fakeAsync(() => {
+    const id = "knkniona4d422dd";
+    let response = {
+      "results": [
+        {
+          "Task": "Project Angular Proj"
+        },
+        {
+          "Task": "Validations"
+        }]
+    };
+    backend.connections.subscribe(connection => {
+      connection.mockRespond(new Response(<ResponseOptions>{
+        body: JSON.stringify(response)
+      }));
+    });
+
+    service.getTasksList(id).subscribe(tasks => {
+      expect(tasks).toEqual(response, 'expected')
+    });
+    tick();
+  }));
+
+  it('should return getParentTasksList', fakeAsync(() => {
+    let response = {
+      "results": [
+        {
+          "Parent_Task": "Project Angular Proj"
+        },
+        {
+          "Parent_Task": "Validations"
+        }]
+    };
+    backend.connections.subscribe(connection => {
+      connection.mockRespond(new Response(<ResponseOptions>{
+        body: JSON.stringify(response)
+      }));
+    });
+
+    service.getParentTasksList().subscribe(ptasks => {
+      expect(ptasks).toEqual(response, 'expected')
+      expect(ptasks.results.length).toBe(2);
+    });
+    tick();
+  }));
+
+  it('should return updateTask', fakeAsync(() => {
+    let task = {
+      'Task': 'Project Name',
+      'Start_Date': '2019-05-8',
+      'End_Date': '2019-05-15',
+      'Priority': 2
+    };
+    backend.connections.subscribe(connection => {
+      connection.mockRespond(new Response(<ResponseOptions>{
+        body: JSON.stringify({ 'success': true })
+      }));
+    });
+
+    service.updateTask(task).subscribe(res => {
+      expect(res).toEqual({ 'success': true });
+    });
+    tick();
+  }));
 
 });

@@ -11,9 +11,11 @@ export class AddUserComponent implements OnInit {
   user = {
     firstName: '',
     lastName: '',
-    employeeID: ''
+    employeeID: '',
+    edit: false
   };
   users: Object[];
+  usersCopy: Object[];
   request: object;
   sortedCollection: any[];
   constructor(private BackendApiService: BackendApiService, private orderPipe: OrderPipe) { }
@@ -59,7 +61,6 @@ export class AddUserComponent implements OnInit {
   }
 
   filterUsers = function (searchby) {
-    console.log(this.orderPipe.transform(this.usersCopy, searchby)); 
       if (searchby) {
         this.users = this.orderPipe.transform(this.usersCopy, searchby)
       }
