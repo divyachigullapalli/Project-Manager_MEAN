@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendApiService } from '../../services/backend-api.service';
+import { OrderPipe } from 'ngx-order-pipe';
 
 @Component({
   selector: 'app-add-project',
@@ -20,27 +21,38 @@ export class AddProjectComponent implements OnInit {
   defaultEndDt: string;
   projects: Object[];
   projectsCopy: Object[];
-  selectedRam: Number;
-  constructor(private BackendApiService: BackendApiService) { }
+  Priority: Number;
+  constructor(private BackendApiService: BackendApiService, private orderPipe: OrderPipe) { }
 
   ngOnInit() {
     this.currentDate = this.getcurrentDate().requestDt;
     this.defaultEndDt = this.getcurrentDate().defaultEndDt;
+    this.Priority = 0;
     this.getUersList();
     this.getProjectsList();
   }
 
   reset = function () {
-    this.project = {};
+    document.getElementById('reset').click();
     this.Priority = 0;
   }
 
-  addProject = function () {
+  assignDefault = function () {
+    if (this.project.checked) {
+      this.project.startDate = this.currentDate;
+      this.project.endDate = this.defaultEndDt;
+    } else {
+      this.project.startDate = '';
+      this.project.endDate = '';
+    }
+  }
 
+
+  addProject = function () {
     var request = {
       'Project': this.project.Project,
-      'Start_Date': this.project.startDate == "" ? this.defaultEndDt : this.project.startDate,
-      'End_Date': this.project.endDate == "" ? this.currentDate : this.project.endDate,
+      'Start_Date': this.project.startDate,
+      'End_Date': this.project.endDate,
       'Priority': this.Priority,
       'Manager': this.project.Manager
     };
@@ -72,15 +84,16 @@ export class AddProjectComponent implements OnInit {
     var request = {
       '_id': this.project._id,
       'Project': this.project.Project,
-      'Start_Date': this.project.startDate == "" ? this.defaultEndDt : this.project.startDate,
-      'End_Date': this.project.endDate == "" ? this.currentDate : this.project.endDate,
+      'Start_Date': this.project.startDate,
+      'End_Date': this.project.endDate,
       'Priority': this.Priority,
       'Manager': this.project.Manager
     };
     this.BackendApiService.updateProject(request).subscribe((res) => {
-      document.getElementById('alert').innerHTML = 'Added Project Successfully!';
+      document.getElementById('alert').innerHTML = 'Updated Project Successfully!';
       document.getElementById('alert').classList.remove('d-none');
       this.reset();
+      this.project.edit = false;
       this.getProjectsList();
     });
     setTimeout(function () {
@@ -93,6 +106,7 @@ export class AddProjectComponent implements OnInit {
     this.BackendApiService.getProjectsList().subscribe((res) => {
       this.projects = res;
       this.projectsCopy = res;
+      this.getTasksList();
     })
   }
 
@@ -101,6 +115,22 @@ export class AddProjectComponent implements OnInit {
       this.users = res;
       this.usersCopy = res;
     })
+  }
+
+  getTasksList = function () {
+    this.projects.forEach(element => {
+      let count = 0;
+      let id = element._id;
+      element.NumOfTasksComp = count;
+      this.BackendApiService.getTasksList(id).subscribe((res) => {
+        this.tasks = res;
+        element.NumOfTasks = res.length;
+        res.forEach(task => {
+          (task.Status == true) ? count++ : count;
+          element.NumOfTasksComp = count;
+        });
+      })
+    });
   }
 
   getcurrentDate = function () {
@@ -122,6 +152,21 @@ export class AddProjectComponent implements OnInit {
   selectManager = function (user) {
     this.project.Manager = user.First_Name + " " + user.Last_Name;
     this.searchManager = '';
+  }
+
+  filterProjects = function (searchby) {
+    if (searchby) {
+      this.projects = this.orderPipe.transform(this.projectsCopy, searchby)
+    }
+  }
+
+  checkDateErr = function (startDate, endDate) {
+    this.errMessage = '';
+    if (Date.parse(startDate) >= Date.parse(endDate)) {
+      this.errMessage = 'End Date should be greater than start date';
+      this.project.endDate = '';
+      return false;
+    }
   }
 
 }

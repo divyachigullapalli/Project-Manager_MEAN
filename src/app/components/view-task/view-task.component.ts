@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendApiService } from '../../services/backend-api.service';
 import { Router } from '@angular/router';
+import { OrderPipe } from 'ngx-order-pipe';
 
 @Component({
   selector: 'app-view-task',
@@ -13,7 +14,7 @@ export class ViewTaskComponent implements OnInit {
   tasks: Object[];
   projects: Object[];
   parentTasksCopy: Object[];
-  constructor(private BackendApiService: BackendApiService, private router: Router) { }
+  constructor(private BackendApiService: BackendApiService, private router: Router, private orderPipe: OrderPipe) { }
 
   ngOnInit() {
     this.getProjectsList();
@@ -41,6 +42,7 @@ export class ViewTaskComponent implements OnInit {
   getTasksList = function (id) {
     this.BackendApiService.getTasksList(id).subscribe((res) => {
       this.tasks = res;
+      this.tasksCopy = res;
     })
   }
 
@@ -64,6 +66,12 @@ export class ViewTaskComponent implements OnInit {
     task.edit=true;
     this.BackendApiService.setData(task);
     this.router.navigate(['addtask']);
+  }
+
+  filterUsers = function (searchby) {
+      if (searchby) {
+        this.tasks = this.orderPipe.transform(this.tasksCopy, searchby)
+      }
   }
 
 }

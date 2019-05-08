@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendApiService } from '../../services/backend-api.service';
-import { FilterPipeModule } from 'ngx-filter-pipe';
+import { OrderPipe } from 'ngx-order-pipe';
 
 @Component({
   selector: 'app-add-user',
@@ -15,16 +15,21 @@ export class AddUserComponent implements OnInit {
   };
   users: Object[];
   request: object;
-
-  constructor(private BackendApiService: BackendApiService,  private filter: FilterPipeModule) { }
+  sortedCollection: any[];
+  constructor(private BackendApiService: BackendApiService, private orderPipe: OrderPipe) { }
 
   ngOnInit() {
     this.getUersList();
   }
 
   reset = function () {
-    this.user = {}
+    document.getElementById('reset').click();
   }
+  cancel= function(){
+    this.user={};
+    this.user.edit = false;
+  }
+
   getUersList = function () {
     this.BackendApiService.getUsersList().subscribe((users) => {
       this.users = users;
@@ -32,7 +37,7 @@ export class AddUserComponent implements OnInit {
     });
   }
 
-  addUser() {
+  registerUser() {
     this.request = {
       'First_Name': this.user.firstName,
       'Last_Name': this.user.lastName,
@@ -41,7 +46,6 @@ export class AddUserComponent implements OnInit {
     this.BackendApiService.addUser(this.request)
       .subscribe(    //receive the data from service
         (value) => {
-          console.log(value);
           document.getElementById('alert').innerHTML = 'Added User Successfully!';
           document.getElementById('alert').classList.remove('d-none');
           this.reset();
@@ -54,8 +58,11 @@ export class AddUserComponent implements OnInit {
 
   }
 
-  filterUsers = function (search) {
-    // this.users = $filter('filter')(this.usersCopy, search);
+  filterUsers = function (searchby) {
+    console.log(this.orderPipe.transform(this.usersCopy, searchby)); 
+      if (searchby) {
+        this.users = this.orderPipe.transform(this.usersCopy, searchby)
+      }
   }
 
   EditUser = function (user) {
@@ -73,7 +80,7 @@ export class AddUserComponent implements OnInit {
       document.getElementById('alert').innerHTML = 'Updated User Successfully!';
       document.getElementById('alert').classList.remove('d-none');
       this.getUersList();
-      this.reset();
+      this.cancel();
     });
     setTimeout(function () {
       document.getElementById('alert').classList.add('d-none');

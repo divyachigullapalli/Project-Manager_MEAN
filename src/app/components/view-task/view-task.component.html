@@ -1,4 +1,4 @@
-<div class="shadow-none mb-5 bg-light rounded">
+<div class="shadow-none mb-5 rounded">
   <div class="col-sm-11 mt-5 mb-5">
     <div class="form-group row">
       <label for="project" class="col-sm-1 col-form-label">Project:</label>
@@ -8,11 +8,11 @@
         <button type="button" class="btn btn-secondary pl-1 col-sm-2" data-toggle="modal"
           data-target="#projectModal">search</button>
       </div>
-      Sort Task By : <button type="button" class="btn btn-secondary float-left mr-2" (click)="EndTask(task)">Start
+      <span class="mt-3 mr-2">Sort Task By :</span> <button type="button" class="btn btn-secondary float-left mr-2" (click)="filterUsers('Start_Date')">Start
         Date</button>
-      <button type="button" class="btn btn-secondary float-left mr-2" (click)="EndTask(task)">End Date</button>
-      <button type="button" class="btn btn-secondary float-left mr-2" (click)="EndTask(task)">Priority</button>
-      <button type="button" class="btn btn-secondary" (click)="EndTask(task)">Completed</button>
+      <button type="button" class="btn btn-secondary float-left mr-2" (click)="filterUsers('End_Date')">End Date</button>
+      <button type="button" class="btn btn-secondary float-left mr-2" (click)="filterUsers('Priority')">Priority</button>
+      <button type="button" class="btn btn-secondary" (click)="filterUsers('Status')">Completed</button>
     </div>
   </div>
 
@@ -25,9 +25,9 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
-          <input type="search" placeholder="Search" name="search" [(ngModel)]="searchProject" />
+          <input type="search" class="form-control" placeholder="Search" name="search" [(ngModel)]="searchProject" />
           <ul>
-            <li *ngFor="let proj of projects" (click)="selectProject(proj)">
+            <li *ngFor="let proj of projects |filter : searchProject: 'Project'" (click)="selectProject(proj)">
               {{proj.Project}}
             </li>
           </ul>

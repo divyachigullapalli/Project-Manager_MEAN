@@ -26,10 +26,12 @@ export class AddTaskComponent implements OnInit {
   users: Object[];
   request: object;
   currentDate: string;
+  defaultEndDt: string;
   constructor(private BackendApiService: BackendApiService, private router: Router) { }
 
   ngOnInit() {
     this.currentDate = this.getcurrentDate().requestDt;
+    this.defaultEndDt= this.getcurrentDate().defaultEndDt;
     this.updateData = this.BackendApiService.getData();
     if (this.updateData === undefined) {
       this.updateData = {
@@ -43,6 +45,11 @@ export class AddTaskComponent implements OnInit {
         'Parent_ID': ''
       };
     }
+    this.task={
+      'Priority': 0,
+      'startDate':this.currentDate,
+      'endDate':this.defaultEndDt
+    };
     this.getParentTasksList();
     this.getUersList();
     this.getProjectsList();
@@ -57,7 +64,12 @@ export class AddTaskComponent implements OnInit {
   }
 
   reset() {
-    this.task = {};
+    document.getElementById('reset').click();
+    this.task={
+      'Priority': 0,
+      'startDate':this.currentDate,
+      'endDate':this.defaultEndDt
+    };
   }
 
   getParentTasksList = function () {

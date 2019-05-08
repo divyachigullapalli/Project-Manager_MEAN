@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
-import { FilterPipeModule } from 'ngx-filter-pipe';
+import { FilterPipe} from './pipes/filter.pipe';
+import { OrderModule } from 'ngx-order-pipe'; 
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -30,16 +31,17 @@ const APP_ROUTES: Routes = [
     AddUserComponent,
     AddProjectComponent,
     AddTaskComponent,
-    ViewTaskComponent
+    ViewTaskComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
-    FilterPipeModule,
     FormsModule,
     RouterModule.forRoot(APP_ROUTES),     //registering the routes
-    HttpModule
+    HttpModule,
+    OrderModule
   ],
-  providers: [BackendApiService],
+  providers: [BackendApiService, FilterPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
