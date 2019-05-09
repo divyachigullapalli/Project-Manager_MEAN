@@ -12,7 +12,10 @@ export class ViewTaskComponent implements OnInit {
 
   task = {};
   tasks: Object[];
+  tasksCopy: Object[];
   projects: Object[];
+  Project: string;
+  Project_ID:string;
   parentTasksCopy: Object[];
   constructor(private BackendApiService: BackendApiService, private router: Router, private orderPipe: OrderPipe) { }
 

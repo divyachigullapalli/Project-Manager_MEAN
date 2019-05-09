@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed,fakeAsync, tick } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { BackendApiService } from '../../services/backend-api.service';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -58,9 +58,9 @@ describe('AddUserComponent', () => {
     expect(component.user.firstName).toBe('Divya');
   });
 
-  it('should reset user', () => {
+  it('should Cancel ', () => {
     component.cancel();
-    expect(component.user).toEqual({ edit: false });
+    expect(component.user.edit).toBe(false);
   });
 
   it('should getUsersList user', () => {

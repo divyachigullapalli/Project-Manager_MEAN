@@ -3563,7 +3563,8 @@ var AddProjectComponent = /** @class */ (function () {
             'startDate': '',
             'endDate': '',
             'Manager': '',
-            'edit': false
+            'edit': false,
+            'checked': false
         };
         this.reset = function () {
             document.getElementById('reset').click();
@@ -3764,7 +3765,17 @@ var AddTaskComponent = /** @class */ (function () {
     function AddTaskComponent(BackendApiService, router) {
         this.BackendApiService = BackendApiService;
         this.router = router;
-        this.task = {};
+        this.task = {
+            'Project_ID': '',
+            'Project': '',
+            'parent': '',
+            'Parent_ID': '',
+            'user': '',
+            'Priority': 0,
+            'startDate': '',
+            'endDate': '',
+            'TaskName': ''
+        };
         this.getParentTasksList = function () {
             var _this = this;
             this.BackendApiService.getParentTasksList().subscribe(function (ptasks) {
@@ -3900,34 +3911,44 @@ var AddTaskComponent = /** @class */ (function () {
                 'Start_Date': '',
                 'End_Date': '',
                 'Project_ID': '',
-                'Priority': '',
+                'Priority': 0,
                 'Parent_ID': ''
             };
         }
-        this.task = {
-            'Priority': 0,
-            'startDate': this.currentDate,
-            'endDate': this.defaultEndDt
-        };
+        this.task.Priority = 0;
+        this.task.startDate = this.currentDate;
+        this.task.endDate = this.defaultEndDt;
+        // this.task={
+        //   'Priority': 0,
+        //   'startDate':this.currentDate,
+        //   'endDate':this.defaultEndDt
+        // };
         this.getParentTasksList();
         this.getUersList();
         this.getProjectsList();
         if (this.updateData && this.updateData.edit) {
-            this.task = {
-                TaskName: this.updateData.Task,
-                startDate: this.updateData.Start_Date,
-                endDate: this.updateData.End_Date,
-                Priority: this.updateData.Priority
-            };
+            this.task.Priority = this.updateData.Priority;
+            this.task.startDate = this.updateData.Start_Date;
+            this.task.endDate = this.updateData.End_Date;
+            this.task.TaskName = this.updateData.Task;
+            // this.task = {
+            //   TaskName: this.updateData.Task,
+            //   startDate: this.updateData.Start_Date,
+            //   endDate: this.updateData.End_Date,
+            //   Priority: this.updateData.Priority
+            // }
         }
     };
     AddTaskComponent.prototype.reset = function () {
         document.getElementById('reset').click();
-        this.task = {
-            'Priority': 0,
-            'startDate': this.currentDate,
-            'endDate': this.defaultEndDt
-        };
+        // this.task={
+        //   'Priority': 0,
+        //   'startDate':this.currentDate,
+        //   'endDate':this.defaultEndDt
+        // };
+        this.task.Priority = 0;
+        this.task.startDate = this.currentDate;
+        this.task.endDate = this.defaultEndDt;
     };
     AddTaskComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({

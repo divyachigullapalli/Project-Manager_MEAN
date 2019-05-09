@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendApiService } from '../../services/backend-api.service';
 import { OrderPipe } from 'ngx-order-pipe';
+import { fail } from 'assert';
 
 @Component({
   selector: 'app-add-project',
@@ -15,10 +16,12 @@ export class AddProjectComponent implements OnInit {
     'startDate': '',
     'endDate': '',
     'Manager': '',
-    'edit': false
+    'edit': false,
+    'checked': false
   };
   currentDate: string;
   defaultEndDt: string;
+  users: Object[];
   projects: Object[];
   projectsCopy: Object[];
   Priority: Number;

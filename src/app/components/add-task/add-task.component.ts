@@ -9,7 +9,17 @@ import { Router } from '@angular/router';
 })
 export class AddTaskComponent implements OnInit {
 
-  task = {};
+  task = {
+    'Project_ID':'',
+    'Project':'',
+    'parent':'',
+    'Parent_ID':'',
+    'user':'',
+    'Priority':0,
+    'startDate':'',
+    'endDate':'',
+    'TaskName':''
+  };
   updateData: {
     '_id': '',
     'edit': false,
@@ -17,12 +27,14 @@ export class AddTaskComponent implements OnInit {
     'Start_Date': '',
     'End_Date': '',
     'Project_ID': '',
-    'Priority': '',
+    'Priority': 0,
     'Parent_ID': ''
   };
   tasks: Object[];
   parentTasks: Object[];
+  parentTasksCopy:Object[];
   projects: Object[];
+  projectsCopy: Object[];
   users: Object[];
   request: object;
   currentDate: string;
@@ -41,35 +53,45 @@ export class AddTaskComponent implements OnInit {
         'Start_Date': '',
         'End_Date': '',
         'Project_ID': '',
-        'Priority': '',
+        'Priority': 0,
         'Parent_ID': ''
       };
     }
-    this.task={
-      'Priority': 0,
-      'startDate':this.currentDate,
-      'endDate':this.defaultEndDt
-    };
+    this.task.Priority =0;
+    this.task.startDate =this.currentDate;
+    this.task.endDate =this.defaultEndDt;
+    // this.task={
+    //   'Priority': 0,
+    //   'startDate':this.currentDate,
+    //   'endDate':this.defaultEndDt
+    // };
     this.getParentTasksList();
     this.getUersList();
     this.getProjectsList();
     if (this.updateData && this.updateData.edit) {
-      this.task = {
-        TaskName: this.updateData.Task,
-        startDate: this.updateData.Start_Date,
-        endDate: this.updateData.End_Date,
-        Priority: this.updateData.Priority
-      }
+      this.task.Priority =this.updateData.Priority;
+    this.task.startDate =this.updateData.Start_Date;
+    this.task.endDate =this.updateData.End_Date;
+    this.task.TaskName=this.updateData.Task;
+      // this.task = {
+      //   TaskName: this.updateData.Task,
+      //   startDate: this.updateData.Start_Date,
+      //   endDate: this.updateData.End_Date,
+      //   Priority: this.updateData.Priority
+      // }
     }
   }
 
   reset() {
     document.getElementById('reset').click();
-    this.task={
-      'Priority': 0,
-      'startDate':this.currentDate,
-      'endDate':this.defaultEndDt
-    };
+    // this.task={
+    //   'Priority': 0,
+    //   'startDate':this.currentDate,
+    //   'endDate':this.defaultEndDt
+    // };
+    this.task.Priority =0;
+    this.task.startDate =this.currentDate;
+    this.task.endDate =this.defaultEndDt;
   }
 
   getParentTasksList = function () {
