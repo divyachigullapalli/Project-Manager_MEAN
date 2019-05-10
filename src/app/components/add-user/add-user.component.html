@@ -1,4 +1,4 @@
-<div class="shadow-none mb-5 w-50 rounded">
+<div class="shadow-none mb-5 add-user-component rounded">
 
     <div class="alert alert-success d-none" role="alert" id="alert"> </div>
     <div>
@@ -50,7 +50,7 @@
 
     <div class="view-users col-sm-12">
         <div class="row pb-3 mb-2">
-            <input class="col-sm-5 mr-5 form-control" type="search" name="search" [(ngModel)]="search" placeholder="search.." />
+            <input class="col-sm-5 mr-md-5 mr-sm-3 form-control" type="search" name="search" [(ngModel)]="search" placeholder="search.." />
             <span class="mt-2 mr-3"> Sort:</span> <button type="button" class="btn btn-secondary  mr-2" (click)="filterUsers('First_Name')">First Name
             </button>
             <button type="button" class="btn btn-secondary  mr-2" (click)="filterUsers('Last_Name')">Last Name </button>

@@ -1,11 +1,11 @@
-<div class="shadow-none mb-5 col-sm-8 rounded">
+<div class="shadow-none mb-5 col-sm-10 col-md-12 col-lg-12 col-xl-10 rounded">
 
   <div class="alert alert-success d-none" role="alert" id="alert"> </div>
   <div>
     <form #addProj="ngForm" class="col-sm-12 mt-5">
       <div class="form-group row">
         <label for="projectname" class="col-sm-2 col-form-label">*Project:</label>
-        <div class="col-sm-8">
+        <div class="col-sm-12 col-md-12 col-lg-10 col-xl-8">
           <input type="text" name="projectname" [(ngModel)]="project.Project" class="form-control" id="Project" required
             #projectname="ngModel">
           <div [hidden]="projectname.valid || projectname.pristine" class="alert alert-danger">
@@ -16,7 +16,7 @@
 
       <div class="row mb-3">
         <div class="col-sm-2"></div>
-        <div class="col-sm-8 row ml-0">
+        <div class="col-sm-12 col-md-12 col-lg-10 col-xl-8 row ml-0">
           <input type="checkbox" class="mt-2" name="check" [(ngModel)]="project.checked" (change)="assignDefault()"
             aria-label="Checkbox for Select Start and End Date"> <span class="mt-1 ml-2 mr-2"> Start and End Date</span>
           <label for="startDt"> </label>
@@ -33,7 +33,7 @@
 
       <div class="form-group row">
         <label for="priority" class="col-sm-2 col-form-label">Priority: </label>
-        <div class="col-sm-8">
+        <div class="col-sm-12 col-md-12 col-lg-10 col-xl-8">
           <span class="">0</span> <span class="float-right">30</span>
           <input type="range" class="form-control slider" id="priority" [min]="0" [max]="30" name="priority"
             placeholder="priority" [(ngModel)]="Priority">
@@ -42,7 +42,7 @@
 
       <div class="form-group row">
         <label for="manager" class="col-sm-2 col-form-label">Manager:</label>
-        <div class="col-sm-8">
+        <div class="col-sm-12 col-md-12 col-lg-10 col-xl-8">
           <input class="form-control col-sm-9 float-left mr-3" type="text" readonly [(ngModel)]="project.Manager"
             name="manager" [ngModelOptions]="{standalone: true}" id="manager">
           <button type="button" class="btn btn-secondary pl-1 col-sm-2" data-toggle="modal"
